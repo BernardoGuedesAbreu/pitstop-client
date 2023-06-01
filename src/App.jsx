@@ -6,12 +6,12 @@ import DriverList from "./Components/Drivers";
 
 function App() {
   return (
-    <BrowserRouter>
+    <div>
     <Routes>
     <Route path="/drivers" element={<DriverList />} />
     
       </Routes>
-      </BrowserRouter>
+      </div>
   );
 }
 

@@ -86,21 +86,10 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
             {!isCollapsed && (
               <Box mb="25px">
                 <Box display="flex" justifyContent="center" alignItems="center">
-                  <img
-                    alt="profile-user"
-                    width="100px"
-                    height="100px"
-                    src={`../../assets/user.png`}
-                    style={{ cursor: "pointer", borderRadius: "50%" }}
-                  />
+                  <img alt="profile-user" width="100px" height="100px" src={`../../assets/user.png`} style={{ cursor: "pointer", borderRadius: "50%" }}/>
                 </Box>
                 <Box textAlign="center">
-                  <Typography
-                    variant="h2"
-                    color={colors.grey[100]}
-                    fontWeight="bold"
-                    sx={{ m: "10px 0 0 0" }}
-                  >
+                  <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>
                     Test Name
                   </Typography>
                   <Typography variant="h5" color={colors.greenAccent[500]}>
@@ -109,47 +98,14 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
                 </Box>
               </Box>
             )}
-  
+
             <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-              <Item
-                title="Dashboard" to="/" icon={<HomeOutlinedIcon />}
-                selected={selected} setSelected={setSelected}
-              />
-              <Item
-                title="Manage Team"
-                to="/team"
-                icon={<PeopleOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Contacts Information"
-                to="/contacts"
-                icon={<ContactsOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Invoices Balances"
-                to="/invoices"
-                icon={<ReceiptOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Profile Form"
-                to="/form"
-                icon={<PersonOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Calendar"
-                to="/calendar"
-                icon={<CalendarTodayOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
+              <Item title="Home" to="/" icon={<HomePage/>} selected={selected} setSelected={setSelected}/>
+              <Item title="Manage Team" to="/team" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected}/>
+              <Item title="Contacts Information" to="/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected}/>
+              <Item title="Invoices Balances" to="/invoices" icon={<ReceiptOutlinedIcon />} selected={selected} setSelected={setSelected}/>
+              <Item title="Calendar" to="/calendar" icon={<CalendarTodayOutlinedIcon />} selected={selected} setSelected={setSelected}/>
+              <Item title="About" to="/about" icon={<PersonOutlinedIcon />} selected={selected} setSelected={setSelected}/>
             </Box>
           </Menu>
         </ProSidebar>
