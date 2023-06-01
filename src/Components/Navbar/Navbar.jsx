@@ -62,9 +62,7 @@ const Sidebar = () => {
             PitStop
         </div>
         <div ref={sidebarRef} className="sidebar__menu">
-            <div
-                ref={indicatorRef}
-                className="sidebar__menu__indicator"
+            <div ref={indicatorRef} className="sidebar__menu__indicator"
                 style={{
                     transform: `translateX(-50%) translateY(${activeIndex * stepHeight}px)`
                 }}
