@@ -4,14 +4,24 @@ import './navbar.css';
 
 const sidebarNavItems = [
     {
-        display: 'Dashboard',
+        display: 'Home',
         to: '/',
         section: ''
     },
     {
-        display: 'Getting Started',
-        to: '/started',
-        section: 'started'
+        display: 'Drivers',
+        to: '/drivers',
+        section: 'drivers'
+    },
+    {
+        display: 'Contructors',
+        to: '/constructors',
+        section: 'constructors'
+    },
+    {
+        display: 'Circuits',
+        to: '/circuits',
+        section: 'circuits'
     },
     {
         display: 'Calendar',
@@ -19,15 +29,11 @@ const sidebarNavItems = [
         section: 'calendar'
     },
     {
-        display: 'User',
-        to: '/user',
-        section: 'user'
+        display: 'About',
+        to: '/about',
+        section: 'about'
     },
-    {
-        display: 'Orders',
-        to: '/order',
-        section: 'order'
-    },
+    
 ]
 
 const Sidebar = () => {

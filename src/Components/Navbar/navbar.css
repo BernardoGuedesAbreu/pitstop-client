@@ -4,7 +4,7 @@
     left: 0;
     height: 100vh;
     width: 15rem;
-    background-color: #222c4c;
+    background-color: #032b2d;
     padding-top: 3rem;
 }
 
@@ -55,4 +55,9 @@
 .sidebar__menu__item__text{
     color:white;
     margin-top: 1.5rem;
+    transition: 0.7s;
+}
+
+.sidebar__menu__item__text:hover{
+    color:rgb(89, 194, 212);
 }
