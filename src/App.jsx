@@ -1,11 +1,17 @@
 import "./App.css";
-import Homepage from "./Pages/Homepage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import DriverList from "./Components/Drivers";
+
 
 function App() {
   return (
-    <div>
-      <Homepage/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+    <Route path="/drivers" element={<DriverList />} />
+    
+      </Routes>
+      </BrowserRouter>
   );
 }
 
