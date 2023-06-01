@@ -9,6 +9,11 @@ const sidebarNavItems = [
         section: ''
     },
     {
+        display: 'Dashboard',
+        to: '/dashboard',
+        section: 'dashboard'
+    },
+    {
         display: 'Drivers',
         to: '/drivers',
         section: 'drivers'
