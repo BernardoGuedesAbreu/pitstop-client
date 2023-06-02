@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './newscard.css';
 
 const NewsCard = () => {
   const [articles, setArticles] = useState([]);
@@ -10,7 +11,7 @@ const NewsCard = () => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        setArticles(data.articles);
+        setArticles(data.articles.slice(0,14));
       } catch (error) {
         console.error('Error fetching articles:', error);
       }
@@ -20,15 +21,18 @@ const NewsCard = () => {
   }, []);
 
   return (
-    <div>
-      {articles.map((article, index) => (
-        <div key={index} className="card">
-          <img src={article.urlToImage} alt={article.title} />
-          <h3>{article.source.name}</h3>
-          <h4>{article.title}</h4>
-          <p>{article.description}</p>
-        </div>
-      ))}
+    <div className="grid-container">
+      <h1>News</h1>
+      <div className="grid">
+        {articles.map((article, index) => (
+          <a key={index} className="card" href={article.url} target="_blank">
+            <img src={article.urlToImage} alt={article.title} />
+            <h3>{article.source.name}</h3>
+            <h4>{article.title}</h4>
+            <p>{article.description}</p>
+          </a>
+        ))}
+      </div>
     </div>
   );
 };
