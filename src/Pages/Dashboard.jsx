@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DriverCard from '../components/DriverCard/DriverCard';
+import Results from '../Components/Results/results';
 
 const api = 'http://localhost:5005';
 
@@ -39,8 +40,13 @@ const Dashboard = () => {
         ))}
       </select>
       {selectedDriver && <DriverCard drivers={drivers} selectedDriver={selectedDriver} />}
+      <div><Results/></div>
     </div>
   );
 };
+
+
+
+
 
 export default Dashboard;
