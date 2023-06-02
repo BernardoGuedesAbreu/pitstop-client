@@ -11,9 +11,12 @@ function Results() {
     try {
       const response = await axios.get(`${api}/api/results`);
       const data = response.data;
-      console.log("data", data.results[0].Races[0].Results);
-      setRaces(data.results[0].Races); // Access the correct property in the response data
-      setResults(data.results[0].Races[0].Results);
+      const allResults = data.results.reduce(
+        (all, race) => all.concat(race.Races[0].Results),
+        []
+      );
+      setRaces(data.results[0].Races);
+      setResults(allResults);
     } catch (error) {
       console.error("Error fetching results:", error);
     }
@@ -27,16 +30,34 @@ function Results() {
     <div>
       <h1>Results</h1>
       <ul>
-        {races.map((result) => (
-          <li key={result.number}>
+        {races.map((race) => (
+          <li key={race.round}>
             <div>
-              <h2>{result.raceName}</h2>
+              <h2>{race.raceName}</h2>
+              <p>Round: {race.round}</p>
+              <p>Season: {race.season}</p>
+              <ul>
+                {race.Results.map((result) => (
+                  <li key={result.number}>
+                    <div>
+                      <h3>{result.Driver.givenName} {result.Driver.familyName}</h3>
+                      <p>Position: {result.position}</p>
+                      <p>Points: {result.points}</p>
+                      <p>Constructor: {result.Constructor.name}</p>
+                      <p>Grid: {result.grid}</p>
+                     
+                      {result.FastestLap && (
+                        <div>
+                          <p>Fastest Lap Time: {result.FastestLap.Time.time}</p>
+                          <p>Fastest Lap Average Speed: {result.FastestLap.AverageSpeed.speed}</p>
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </li>
-        ))}
-
-        {results.map((result) => (
-          <p key={result.number}>{result.number}</p>
         ))}
       </ul>
     </div>
