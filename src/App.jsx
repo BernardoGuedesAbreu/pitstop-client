@@ -3,6 +3,7 @@ import {Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import DriverList from "./Components//DriverList/Drivers";
 import Dashboard from "./Pages/Dashboard";
+import HomePage from "./Pages/Homepage";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/drivers" element={<DriverList />}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
-
+        <Route path="/" element={<HomePage/>}/>
       </Routes>
     </div>
   );
