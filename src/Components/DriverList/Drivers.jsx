@@ -14,7 +14,7 @@ function DriverList() {
       const data = response.data;
       console.log(data);
       console.log("there");
-      setDrivers(data.drivers);
+      setDrivers(data.drivers[0].Drivers);
     } catch (error) {
       console.error("Error fetching drivers:", error);
     }

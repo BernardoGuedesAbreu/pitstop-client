@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DriverCard from '../components/DriverCard/DriverCard';
-import Results from '../Components/Results/results';
+import FastestLap from '../Components/Results/Fastestlap.jsx';
 
 const api = 'http://localhost:5005';
 
@@ -19,7 +19,7 @@ const Dashboard = () => {
         const response = await axios.get(`${api}/api/drivers`);
         const { drivers } = response.data;
         console.log('Fetched drivers:', drivers);
-        setDrivers(drivers);
+        setDrivers(drivers[0].Drivers);
       } catch (error) {
         console.error('Error fetching drivers:', error);
       }
@@ -40,13 +40,9 @@ const Dashboard = () => {
         ))}
       </select>
       {selectedDriver && <DriverCard drivers={drivers} selectedDriver={selectedDriver} />}
-      <div><Results/></div>
+      {selectedDriver && <FastestLap selectedDriver={selectedDriver} />} 
     </div>
   );
 };
-
-
-
-
 
 export default Dashboard;
