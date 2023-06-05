@@ -27,13 +27,13 @@ function DriverList() {
   return (
     <div>
       <h1>Driver List</h1>
-      <ul>
+      <div className="grid">
         {drivers.map((driver) => (
           <li key={driver.driverId}>
             {driver.givenName} {driver.familyName}
           </li>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
