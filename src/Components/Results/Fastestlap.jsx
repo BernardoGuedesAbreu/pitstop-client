@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -26,11 +27,11 @@ function FastestLap({ selectedDriver }) {
     fetchResults();
   }, []);
 
-
+  console.log("results: ",results);
   const filteredResults = results.filter(
-    (result) => result.driverId === selectedDriver
+    (result) => result.Driver.driverId === selectedDriver
   );
-  
+  console.log("filtered: ", filteredResults);
 
   return (
     <div>
@@ -50,7 +51,10 @@ function FastestLap({ selectedDriver }) {
                       {result.FastestLap && (
                         <div>
                           <p>Fastest Lap Time: {result.FastestLap.Time.time}</p>
-                          <p>Fastest Lap Average Speed: {result.FastestLap.AverageSpeed.speed}</p>
+                          <p>
+                            Fastest Lap Average Speed:{" "}
+                            {result.FastestLap.AverageSpeed.speed}
+                          </p>
                         </div>
                       )}
                     </div>
