@@ -12,6 +12,7 @@ const DriverCard = ({ drivers, selectedDriver }) => {
         <div>
           <h3>Name: {selectedDriverInfo.givenName} {selectedDriverInfo.familyName}</h3>
           <h3>Nationality: {selectedDriverInfo.nationality}</h3>
+          <h3>Bio: {selectedDriverInfo.bio}</h3>
           {/* Render other driver information */}
         </div>
       )}

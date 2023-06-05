@@ -26,7 +26,7 @@ const NewsCard = () => {
       <div className="grid">
         {articles.map((article, index) => (
           <a key={index} className="card" href={article.url} target="_blank">
-            <img src={article.urlToImage} alt={article.title} />
+            <img src={article.urlToImage} alt={article.title}/>
             <h3>{article.source.name}</h3>
             <h4>{article.title}</h4>
             <p>{article.description}</p>

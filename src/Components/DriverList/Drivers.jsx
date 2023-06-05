@@ -25,13 +25,15 @@ function DriverList() {
   }, []);
 
   return (
-    <div>
+    <div className="drivers-grid-container">
       <h1>Driver List</h1>
-      <div className="grid">
+      <div className="drivers-grid">
         {drivers.map((driver) => (
-          <li key={driver.driverId}>
-            {driver.givenName} {driver.familyName}
-          </li>
+          <div key={driver.driverId} className="drivers-card">
+            <h3>{driver.givenName} {driver.familyName}</h3>
+            <h3>{driver.nationality}</h3>
+            <h3>{driver.dateOfBirth}</h3>
+          </div>
         ))}
       </div>
     </div>
