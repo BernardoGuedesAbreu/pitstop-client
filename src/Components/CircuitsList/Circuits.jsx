@@ -32,7 +32,7 @@ function CircuitsList() {
           <div key={circuits.circuitsId} className="circuits-card">
             <h3>{circuits.circuitName}</h3>
             <h3>{circuits.Location.country}, {circuits.Location.locality}</h3>
-            
+            <img src={circuits.url}/>
           </div>
         ))}
       </div>
