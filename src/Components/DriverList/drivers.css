@@ -25,6 +25,7 @@ body{
   .drivers-card > img {
     width: 10rem;
     border-radius: 1rem;
+    margin-top: 0.5rem;
   }
 
   .drivers-card:hover{

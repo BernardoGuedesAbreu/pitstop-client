@@ -1,27 +1,23 @@
-import React from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import { useState } from 'react';
+import Calendar from 'react-calendar';
+import './calendar.css';
+import 'react-calendar/dist/Calendar.css';
 
-const Calendar = () => {
-    const events = [
-      {
-        title: 'Event 1',
-        start: '2023-06-01',
-        end: '2023-06-03'
-      },
-      {
-        title: 'Event 2',
-        start: '2023-06-05'
-      },
-    ];
-  
-    return (
+function CalendarPage() {
+  const [date, setDate] = useState(new Date());
+
+  return (
+    <div>
+      <h1>Calendar</h1>
       <div>
-        <h1>Calendar</h1>
-        <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" events={events}/>
+        <Calendar onChange={setDate} value={date} />
       </div>
-    );
-  };
-  
-  export default Calendar;
-  
+      <p>
+        <span className='bold'>Selected Date:</span>{' '}
+        {date.toDateString()}
+      </p>
+    </div>
+  );
+}
+
+export default CalendarPage;
