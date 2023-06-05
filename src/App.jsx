@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import DriverList from "./Components//DriverList/Drivers";
 import Dashboard from "./Pages/Dashboard";
 import HomePage from "./Pages/Homepage";
+import Login from "./Pages/Login";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/drivers" element={<DriverList />}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/login" element={<Login/>} />
         <Route path="/" element={<HomePage/>}/>
       </Routes>
     </div>
