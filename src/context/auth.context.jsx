@@ -48,6 +48,7 @@ function AuthProviderWrapper(props) {
     //first, we remove the token from the local storage
     localStorage.removeItem("authToken");
     //we run authenticate again to reset the states
+    console.log("User logged out");
     authenticateUser();
   };
 
