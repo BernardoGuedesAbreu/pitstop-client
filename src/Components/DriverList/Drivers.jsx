@@ -32,8 +32,8 @@ function DriverList() {
           <div key={driver.driverId} className="drivers-card">
             <img src={driver.url} alt="picture"/>
             <h3>{driver.givenName} {driver.familyName}</h3>
-            <h3>{driver.nationality}</h3>
-            <h3>{driver.dateOfBirth}</h3>
+            <h4>{driver.nationality}</h4>
+            <h4>{driver.dateOfBirth}</h4>
           </div>
         ))}
       </div>

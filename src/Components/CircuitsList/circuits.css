@@ -29,6 +29,7 @@ h1{
   .circuits-card > img {
     width: 15rem;
     border-radius: 1rem;
+    margin-top: 0.5rem;
   }
 
   .circuits-card:hover {

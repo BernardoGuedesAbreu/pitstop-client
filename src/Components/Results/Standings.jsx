@@ -51,7 +51,7 @@ function Standings() {
 
   return (
     <div>
-      <h1>Standings</h1>
+      <h2>Standings</h2>
       <table>
         <thead>
           <tr>
@@ -62,7 +62,7 @@ function Standings() {
         <tbody>
           {standings.map((driver) => (
             <tr key={driver.driverId}>
-              <td>{driver.givenName} {driver.familyName}</td>
+              <td>{driver.driverId}</td>
               <td>{driver.totalPoints}</td>
             </tr>
           ))}
