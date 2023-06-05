@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import DriverCard from '../components/DriverCard/DriverCard';
 import FastestLap from '../Components/Results/Fastestlap.jsx';
+import AverageQualify from '../Components/Results/AverageQualy';
+import AveragePosition from '../Components/Results/AveragePosition';
+import Standings from '../Components/Results/Standings';
 
 const api = 'http://localhost:5005';
 
@@ -41,6 +44,9 @@ const Dashboard = () => {
       </select>
       {selectedDriver && <DriverCard drivers={drivers} selectedDriver={selectedDriver} />}
       {selectedDriver && <FastestLap selectedDriver={selectedDriver} />} 
+      {selectedDriver && <AverageQualify selectedDriver={selectedDriver} />}
+      {selectedDriver && <AveragePosition selectedDriver={selectedDriver} />}
+      {<Standings />}
     </div>
   );
 };

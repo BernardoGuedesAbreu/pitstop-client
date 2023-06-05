@@ -7,6 +7,8 @@ const api = "http://localhost:5005";
 function FastestLap({ selectedDriver }) {
   const [races, setRaces] = useState([]);
   const [results, setResults] = useState([]);
+  const [averageFastestLapTime, setAverageFastestLapTime] = useState(null);
+  const [averageFastestLapSpeed, setAverageFastestLapSpeed] = useState(null);
 
   async function fetchResults() {
     try {
@@ -27,44 +29,47 @@ function FastestLap({ selectedDriver }) {
     fetchResults();
   }, []);
 
-  console.log("results: ",results);
-  const filteredResults = results.filter(
-    (result) => result.Driver.driverId === selectedDriver
-  );
-  console.log("filtered: ", filteredResults);
+  useEffect(() => {
+    const filteredResults = results.filter(
+      (result) => result.Driver.driverId === selectedDriver
+    );
+
+    let totalFastestLapTime = 0;
+    let totalFastestLapSpeed = 0;
+    let count = 0;
+
+    filteredResults.forEach((result) => {
+      if (result.FastestLap && result.FastestLap.Time.time) {
+        const lapTime = result.FastestLap.Time.time;
+        const lapTimeParts = lapTime.split(":");
+        const minutes = parseInt(lapTimeParts[0]);
+        const seconds = parseFloat(lapTimeParts[1]);
+
+        const lapTimeInSeconds = minutes * 60 + seconds;
+        totalFastestLapTime += lapTimeInSeconds;
+        totalFastestLapSpeed += parseFloat(result.FastestLap.AverageSpeed.speed);
+        count++;
+      }
+    });
+
+    const averageTime = count > 0 ? totalFastestLapTime / count : 0;
+    const averageSpeed = count > 0 ? totalFastestLapSpeed / count : 0;
+
+    setAverageFastestLapTime(averageTime);
+    setAverageFastestLapSpeed(averageSpeed);
+  }, [results, selectedDriver]);
 
   return (
     <div>
       <h1>Fastest Lap</h1>
-      <ul>
-        {races.map((race) => (
-          <li key={race.round}>
-            <div>
-              <h2>{race.raceName}</h2>
-              <ul>
-                {filteredResults.map((result) => (
-                  <li key={result.number}>
-                    <div>
-                      <p>Position: {result.position}</p>
-                      <p>Points: {result.points}</p>
-                      <p>Grid: {result.grid}</p>
-                      {result.FastestLap && (
-                        <div>
-                          <p>Fastest Lap Time: {result.FastestLap.Time.time}</p>
-                          <p>
-                            Fastest Lap Average Speed:{" "}
-                            {result.FastestLap.AverageSpeed.speed}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div>
+        {averageFastestLapTime !== null && (
+          <p>Average Fastest Lap Time: {averageFastestLapTime.toFixed(3)} seconds</p>
+        )}
+        {averageFastestLapSpeed !== null && (
+          <p>Average Fastest Lap Speed: {averageFastestLapSpeed.toFixed(3)} km/h</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -3,42 +3,39 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const {storeToken, authenticateUser} = useContext(AuthContext)
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-
-  const handleLoginSubmit = (e) => {
+  const handleName = (e) => setName(e.target.value);
+  
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
     const body = {
-      email,
+      email,name,
       password,
     };
     axios
-      .post(`http://localhost:5005/api/login`, body)
-      .then((response) => {
-        storeToken(response.data.authToken);
-        authenticateUser();
-        navigate('/');
+      .post(`http://localhost:5005/api/signup`, body)
+      .then(() => {
+        navigate("/login");
       })
       .catch((err) => {
         setError(err.response);
       });
   };
 
-
   return (
     <div>
-      <h2>Login</h2>
+      <h2>Signup</h2>
       {error && <p>{error}</p>}
-      <form onSubmit={handleLoginSubmit}>
+      <form onSubmit={handleSignupSubmit}>
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -46,6 +43,15 @@ const Login = () => {
             id="email"
             value={email}
             onChange={handleEmail}
+          />
+        </div>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={handleName}
           />
         </div>
         <div>
@@ -57,14 +63,12 @@ const Login = () => {
             onChange={handlePassword}
           />
         </div>
-        <button type="submit">Login</button>
-        <p>Dont have an account yet?</p>
-          <Link to={'/signup'}>
-            Sign Up here
-          </Link>
+        <button type="submit">Sign up</button>
+        <p>Already have an account?</p>
+        <Link to={"/login"}>Login here</Link>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

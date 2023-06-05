@@ -43,6 +43,11 @@ const sidebarNavItems = [
     to: '/login',
     section: ''
   },
+  {
+    display: "Signup",
+    to: '/signup',
+    section: ''
+  },
 ];
 
 const Navbar = () => {

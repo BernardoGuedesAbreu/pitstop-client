@@ -5,6 +5,7 @@ import DriverList from "./Components//DriverList/Drivers";
 import Dashboard from "./Pages/Dashboard";
 import HomePage from "./Pages/Homepage";
 import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/drivers" element={<DriverList />}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
     </div>
