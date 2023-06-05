@@ -27,11 +27,12 @@ h1{
   }
 
   .circuits-card > img {
-    width: 35rem;
+    width: 15rem;
     border-radius: 1rem;
   }
 
-  .circuits-card:hover{
+  .circuits-card:hover {
     color:rgb(89, 194, 212);
     background-color: #171c2d;
+    transform: scale(1.75);
   }

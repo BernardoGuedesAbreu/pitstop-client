@@ -62,7 +62,7 @@ function Standings() {
         <tbody>
           {standings.map((driver) => (
             <tr key={driver.driverId}>
-              <td>{driver.driverId}</td>
+              <td>{driver.givenName} {driver.familyName}</td>
               <td>{driver.totalPoints}</td>
             </tr>
           ))}

@@ -30,9 +30,10 @@ function CircuitsList() {
       <div className="circuits-grid">
         {circuits.map((circuits) => (
           <div key={circuits.circuitsId} className="circuits-card">
+            <img src={circuits.url}/>
             <h3>{circuits.circuitName}</h3>
             <h3>{circuits.Location.country}, {circuits.Location.locality}</h3>
-            <img src={circuits.url}/>
+            
           </div>
         ))}
       </div>
