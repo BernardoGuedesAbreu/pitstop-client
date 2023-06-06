@@ -8,7 +8,6 @@ const DriverCard = ({ drivers, selectedDriver }) => {
 
   return (
     <div>
-      <h2>Driver Card</h2>
       {selectedDriverInfo && (
         <div className='driver-card'>
           <h3>Name: {selectedDriverInfo.givenName} {selectedDriverInfo.familyName}</h3>

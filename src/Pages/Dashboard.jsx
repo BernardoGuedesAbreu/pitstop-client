@@ -51,10 +51,9 @@ const Dashboard = () => {
           ))}
         </select>
       </div>
-
+        <DriverCard className="driver-card" drivers={drivers} selectedDriver={selectedDriver}/>
       {selectedDriver && (
         <div className="dashboard-section driver-info-section">
-          <DriverCard drivers={drivers} selectedDriver={selectedDriver} />
           <FastestLap selectedDriver={selectedDriver} />
           <AverageQualify selectedDriver={selectedDriver} />
           <AveragePosition selectedDriver={selectedDriver} />
