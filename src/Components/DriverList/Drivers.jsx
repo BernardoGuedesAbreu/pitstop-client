@@ -25,6 +25,13 @@ function DriverList() {
     fetchDrivers();
   }, []);
 
+  const formatDateOfBirth = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
   
   const handleDeleteDriver = async (driverId) => {
     const storedToken = localStorage.getItem("authToken");
@@ -44,8 +51,7 @@ function DriverList() {
 
   return (
     <div className="drivers-grid-container">
-      <h1>Driver List</h1>
-     
+      <h1 className="driver-header">Driver List</h1>
       <div className="drivers-grid">
         {drivers.map((driver) => (
           <div key={driver.driverId} className="drivers-card">
@@ -54,20 +60,20 @@ function DriverList() {
               {driver.givenName} {driver.familyName}
             </h3>
             <h4>{driver.nationality}</h4>
-            <h4>{driver.dateOfBirth}</h4>
+            <h4>{formatDateOfBirth(driver.dateOfBirth)}</h4>
             {user && user.role === "admin" && (
               <div>
-                <button onClick={() => handleDeleteDriver(driver._id)}>
+                <button className="delete-button" onClick={() => handleDeleteDriver(driver._id)}>
                   Delete
                 </button>
-                <Link to={`/drivers/${driver._id}`}>Edit</Link>
+                <Link to={`/drivers/${driver._id}`}><span className="edit-button">Edit</span></Link>
               </div>
             )}
           </div>
         ))}
       </div>
       {user && user.role === "admin" && (
-        <Link to={"/new-driver"}>Create a driver</Link>
+        <Link to={"/new-driver"}><span className="create-button">Create a driver</span></Link>
       )}
     </div>
   );

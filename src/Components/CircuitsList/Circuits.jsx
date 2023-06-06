@@ -26,7 +26,7 @@ function CircuitsList() {
 
   return (
     <div className="circuits-grid-container">
-      <h1>Circuits</h1>
+      <h1 className="circuits-header">Circuits</h1>
       <div className="circuits-grid">
         {circuits.map((circuits) => (
           <div key={circuits.circuitsId} className="circuits-card">

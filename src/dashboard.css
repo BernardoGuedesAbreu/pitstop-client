@@ -76,4 +76,5 @@
   .dashboard-title{
     text-align: center;
     margin-right:15rem;
+    text-shadow: 4px 4px 4px rgba(255, 0, 0,0.5);
   }

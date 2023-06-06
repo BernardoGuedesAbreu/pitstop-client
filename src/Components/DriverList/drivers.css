@@ -16,11 +16,12 @@ body{
   }
   
   .drivers-card {
-    border: 1px solid #ccc;
+    border: 1px solid red;
     transition: 0.7s;
     line-height: 1.3;
     border-radius: 1rem;
     width: 16rem;
+    padding-bottom: 1rem;
   }
 
   .drivers-card > img {
@@ -31,5 +32,55 @@ body{
 
   .drivers-card:hover{
     color:rgb(89, 194, 212);
-    background-color: #171c2d;
+    background-color: #000000;
+  }
+
+  .delete-button{
+    background-color: red;
+    color:white;
+    border: 1px solid black;
+    transition: 0.8s;
+  }
+
+  .delete-button:hover{
+    background-color: black;
+    color:red;
+    border-color: white;
+    
+  }
+
+  .edit-button{
+    background-color: red;
+    color:white;
+    padding:0.7rem;
+    border-radius: 0.5rem;
+    margin-left: 2rem;
+    border: 1px solid black;
+    transition: 0.8s;
+  }
+
+  .edit-button:hover{
+    background-color: black;
+    color:red;
+    border-color: white;
+  }
+
+  .create-button{
+    background-color: red;
+    color:white;
+    padding:0.7rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    transition: 0.8 s;
+  }
+
+  .create-button:hover{
+    background-color: black;
+    color:red;
+    border-color: white;
+  }
+
+  .driver-header{
+    color:white;
+    text-shadow: 4px 4px 4px rgba(255, 0, 0,0.5);
   }
