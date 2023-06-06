@@ -7,7 +7,7 @@ import HomePage from "./Pages/Homepage";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import NewDriverPage from "./Pages/NewDriver";
-import EditDriver from "./Pages/EditDriver";
+import EditDriverPage from "./Pages/EditDriver";
 import ConstructorsList from "./Components/ConstructorsList/Constructors";
 import CircuitsList from "./Components/CircuitsList/Circuits";
 import Calendar from "./Components/Calendar/Calendar";
@@ -26,7 +26,7 @@ function App() {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/" element={<HomePage/>}/>
         <Route exact path="/new-driver" element={<NewDriverPage/>} />
-        <Route path="/edit-driver/:driverId" element={<EditDriver/>} />
+        <Route path="/drivers/:driverId" element={<EditDriverPage/>} />
       </Routes>
     </div>
   );
