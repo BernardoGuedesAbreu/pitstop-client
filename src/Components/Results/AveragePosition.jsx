@@ -47,7 +47,7 @@ function AveragePosition({ selectedDriver }) {
       }
     });
 
-    const averagePositionValue = count > 0 ? totalPosition / count : 0;
+    const averagePositionValue = count > 0 ?  Math.floor(totalPosition / count) : 0;
 
     setAveragePosition(averagePositionValue);
   }, [results, selectedDriver]);

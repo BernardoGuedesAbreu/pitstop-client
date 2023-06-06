@@ -13,12 +13,15 @@ function AverageQualify({ selectedDriver }) {
     try {
       const response = await axios.get(`${api}/api/results`);
       const data = response.data;
-      const allResults = data.results.reduce(
-        (all, race) => all.concat(race.Races[0].Results),
+      const allResults = data.results[0].Races.reduce(
+        (all, race) => all.concat(race.Results),
         []
+        
       );
+      console.log(`results qualy`, allResults)
       setRaces(data.results[0].Races);
       setResults(allResults);
+      
     } catch (error) {
       console.error("Error fetching results:", error);
     }
@@ -43,7 +46,7 @@ function AverageQualify({ selectedDriver }) {
       }
     });
 
-    const averageGridPosition = count > 0 ? totalGrid / count : 0;
+    const averageGridPosition = count > 0 ? Math.floor(totalGrid / count) : 0;
 
     setAverageGrid(averageGridPosition);
   }, [results, selectedDriver]);
