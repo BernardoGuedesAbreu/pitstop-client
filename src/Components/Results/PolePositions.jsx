@@ -1,13 +1,11 @@
-/* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const api = "http://localhost:5005";
 
-function AverageQualify({ selectedDriver }) {
-  const [races, setRaces] = useState([]);
+function PolePosition({ selectedDriver }) {
   const [results, setResults] = useState([]);
-  const [averageGrid, setAverageGrid] = useState(null);
+  const [polePositionCount, setPolePositionCount] = useState(0);
 
   async function fetchResults() {
     try {
@@ -16,12 +14,9 @@ function AverageQualify({ selectedDriver }) {
       const allResults = data.results[0].Races.reduce(
         (all, race) => all.concat(race.Results),
         []
-        
       );
-      
-      setRaces(data.results[0].Races);
+
       setResults(allResults);
-      
     } catch (error) {
       console.error("Error fetching results:", error);
     }
@@ -36,27 +31,20 @@ function AverageQualify({ selectedDriver }) {
       (result) => result.Driver.driverId === selectedDriver
     );
 
-    let totalGrid = 0;
-    let count = 0;
+    const polePositionCount = filteredResults.reduce(
+      (count, result) => count + (parseInt(result.grid) === 1 ? 1 : 0),
+      0
+    );
 
-    filteredResults.forEach((result) => {
-      if (result.grid) {
-        totalGrid += parseInt(result.grid);
-        count++;
-      }
-    });
-
-    const averageGridPosition = count > 0 ? Math.floor(totalGrid / count) : 0;
-
-    setAverageGrid(averageGridPosition);
+    setPolePositionCount(polePositionCount);
   }, [results, selectedDriver]);
 
   return (
     <div>
-      <h2>Average Qualify Position</h2>
-      {averageGrid !== null && <p>{averageGrid.toFixed(0)}</p>}
+      <h2>Pole Positions</h2>
+      <p>Number of Pole Positions: {polePositionCount}</p>
     </div>
   );
 }
 
-export default AverageQualify;
+export default PolePosition;

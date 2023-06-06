@@ -4,23 +4,19 @@ import axios from "axios";
 
 const api = "http://localhost:5005";
 
-function AveragePosition({ selectedDriver }) {
+function UnfinishedRaceCount({ selectedDriver }) {
   const [races, setRaces] = useState([]);
   const [results, setResults] = useState([]);
-  const [averagePosition, setAveragePosition] = useState(null);
+  const [unfinishedRaceCount, setUnfinishedRaceCount] = useState(0);
 
   async function fetchResults() {
     try {
       const response = await axios.get(`${api}/api/results`);
       const data = response.data;
-     
-
       const allResults = data.results[0].Races.reduce(
         (all, race) => all.concat(race.Results),
         []
       );
-
-      
       setRaces(data.results[0].Races);
       setResults(allResults);
     } catch (error) {
@@ -37,27 +33,25 @@ function AveragePosition({ selectedDriver }) {
       (result) => result.Driver.driverId === selectedDriver
     );
 
-    let totalPosition = 0;
-    let count = 0;
+    const unfinishedRaces = filteredResults.filter(
+      (result) =>
+        result.status !== "Finished" &&
+        result.status !== "+1 Lap" &&
+        result.status !== "+2 Laps" &&
+        result.status !== "+3 Laps"
+    );
+    const numUnfinishedRaces = unfinishedRaces.length;
+    console.log("Number of Unfinished Races:", numUnfinishedRaces);
 
-    filteredResults.forEach((result) => {
-      if (result.position) {
-        totalPosition += parseInt(result.position);
-        count++;
-      }
-    });
-
-    const averagePositionValue = count > 0 ?  Math.floor(totalPosition / count) : 0;
-
-    setAveragePosition(averagePositionValue);
+    setUnfinishedRaceCount(numUnfinishedRaces);
   }, [results, selectedDriver]);
 
   return (
     <div>
-      <h2>Average Position</h2>
-      {averagePosition !== null && <p>{averagePosition.toFixed(0)}</p>}
+      <h2>Number of unfinished Races (DNF) </h2>
+      <p>{unfinishedRaceCount}</p>
     </div>
   );
 }
 
-export default AveragePosition;
+export default UnfinishedRaceCount;

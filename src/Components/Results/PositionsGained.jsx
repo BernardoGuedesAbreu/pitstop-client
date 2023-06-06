@@ -1,25 +1,22 @@
-/* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const api = "http://localhost:5005";
 
-function AveragePosition({ selectedDriver }) {
+function PositionsGained({ selectedDriver }) {
   const [races, setRaces] = useState([]);
   const [results, setResults] = useState([]);
-  const [averagePosition, setAveragePosition] = useState(null);
+  const [totalPositionsGained, setTotalPositionsGained] = useState(null);
+  const [averagePositionsGained, setAveragePositionsGained] = useState(null);
 
   async function fetchResults() {
     try {
       const response = await axios.get(`${api}/api/results`);
       const data = response.data;
-     
-
       const allResults = data.results[0].Races.reduce(
         (all, race) => all.concat(race.Results),
         []
       );
-
       
       setRaces(data.results[0].Races);
       setResults(allResults);
@@ -37,27 +34,30 @@ function AveragePosition({ selectedDriver }) {
       (result) => result.Driver.driverId === selectedDriver
     );
 
-    let totalPosition = 0;
-    let count = 0;
+    let totalPositionsGained = 0;
 
     filteredResults.forEach((result) => {
-      if (result.position) {
-        totalPosition += parseInt(result.position);
-        count++;
+      const grid = parseInt(result.grid);
+      const position = parseInt(result.position);
+
+      if (grid && position) {
+        totalPositionsGained += grid - position;
       }
     });
 
-    const averagePositionValue = count > 0 ?  Math.floor(totalPosition / count) : 0;
-
-    setAveragePosition(averagePositionValue);
+    setTotalPositionsGained(totalPositionsGained);
+    setAveragePositionsGained(
+      totalPositionsGained / filteredResults.length || 0
+    );
   }, [results, selectedDriver]);
 
   return (
     <div>
-      <h2>Average Position</h2>
-      {averagePosition !== null && <p>{averagePosition.toFixed(0)}</p>}
+      <h2>Positions Gained</h2>
+      <p>Total Positions Gained: {totalPositionsGained}</p>
+      <p>Average Positions Gained: {averagePositionsGained}</p>
     </div>
   );
 }
 
-export default AveragePosition;
+export default PositionsGained;

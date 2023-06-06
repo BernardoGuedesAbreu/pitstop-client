@@ -6,6 +6,9 @@ import AverageQualify from '../Components/Results/AverageQualy';
 import AveragePosition from '../Components/Results/AveragePosition';
 import Standings from '../Components/Results/Standings';
 import '../dashboard.css';
+import PositionsGained from '../Components/Results/PositionsGained';
+import UnfinishedRaces from '../Components/Results/UnfinishedRaces';
+import PolePosition from '../Components/Results/PolePositions';
 
 const api = 'http://localhost:5005';
 
@@ -57,6 +60,9 @@ const Dashboard = () => {
           <FastestLap selectedDriver={selectedDriver} />
           <AverageQualify selectedDriver={selectedDriver} />
           <AveragePosition selectedDriver={selectedDriver} />
+          <PositionsGained selectedDriver={selectedDriver} />
+          <UnfinishedRaces selectedDriver={selectedDriver} />
+          <PolePosition selectedDriver={selectedDriver} />
         </div>
       )}
     </div>
