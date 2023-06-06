@@ -22,7 +22,6 @@ const NewsCard = () => {
 
   return (
     <div className="grid-container">
-      <h1>News</h1>
       <div className="grid">
         {articles.map((article, index) => (
           <a key={index} className="card" href={article.url} target="_blank">

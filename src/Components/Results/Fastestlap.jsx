@@ -61,7 +61,7 @@ function FastestLap({ selectedDriver }) {
 
   return (
     <div>
-      <h3>Fastest Lap</h3>
+      <h2>Fastest Lap</h2>
       <div>
         {averageFastestLapTime !== null && (
           <p>Average Fastest Lap Time: {averageFastestLapTime.toFixed(3)} seconds</p>

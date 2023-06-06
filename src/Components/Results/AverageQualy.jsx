@@ -50,7 +50,7 @@ function AverageQualify({ selectedDriver }) {
 
   return (
     <div>
-      <h1>Average Qualify Position</h1>
+      <h2>Average Qualify Position</h2>
       {averageGrid !== null && <p>{averageGrid.toFixed(0)}</p>}
     </div>
   );

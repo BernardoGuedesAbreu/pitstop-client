@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <h1 className="dashboard-header">Dashboard</h1>
+      <h1 className="Dashboard-title">Dashboard</h1>
       <h2 className="section-title">Standings</h2>
       <div className="dashboard-section standings-section">
         <Standings />

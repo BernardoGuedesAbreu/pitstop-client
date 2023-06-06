@@ -1,8 +1,9 @@
 tr {
     line-height: 1.5;
+    display: flex;
+    justify-content: space-between;
 }
 
 .td-driver {
     margin-right: 60px;
-    background-color: rgb(102, 60, 0);
 }

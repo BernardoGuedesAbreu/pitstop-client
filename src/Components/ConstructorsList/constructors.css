@@ -10,6 +10,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left:5rem;
   }
   
   .constructors-grid {
@@ -27,11 +28,13 @@ h1{
   }
 
   .constructors-card > img {
-    width: 35rem;
+    width: 15rem;
     border-radius: 1rem;
+    transition: 0.7s;
   }
 
   .constructors-card:hover{
     color:rgb(89, 194, 212);
     background-color: #171c2d;
+    transform: scale(1.40);
   }

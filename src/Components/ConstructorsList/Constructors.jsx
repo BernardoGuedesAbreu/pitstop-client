@@ -30,9 +30,9 @@ function ConstructorsList() {
       <div className="constructors-grid">
         {constructors.map((constructor) => (
           <div key={constructor.constructorId} className="constructors-card">
-          <img src={constructor.url} alt=""/>
-            <h3>{constructor.name}</h3>
+            <h2>{constructor.name}</h2>
             <h3>{constructor.nationality}</h3>
+            <img src={constructor.url} alt=""/>
           </div>
         ))}
       </div>

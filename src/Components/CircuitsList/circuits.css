@@ -10,6 +10,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left:5rem;
   }
   
   .circuits-grid {
@@ -35,5 +36,5 @@ h1{
   .circuits-card:hover {
     color:rgb(89, 194, 212);
     background-color: #171c2d;
-    transform: scale(1.75);
+    transform: scale(1.25);
   }

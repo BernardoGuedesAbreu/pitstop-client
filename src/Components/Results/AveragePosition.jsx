@@ -50,7 +50,7 @@ function AveragePosition({ selectedDriver }) {
 
   return (
     <div>
-      <h1>Average Position</h1>
+      <h2>Average Position</h2>
       {averagePosition !== null && <p>{averagePosition.toFixed(0)}</p>}
     </div>
   );
