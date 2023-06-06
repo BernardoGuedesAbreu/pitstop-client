@@ -14,7 +14,7 @@ function ConstructorsList() {
       const data = response.data;
       console.log(data);
       console.log("there");
-      setConstructors(data.constructors[0].Constructors);
+      setConstructors(data.constructors);
     } catch (error) {
       console.error("Error fetching Constructors:", error);
     }
@@ -30,6 +30,7 @@ function ConstructorsList() {
       <div className="constructors-grid">
         {constructors.map((constructor) => (
           <div key={constructor.constructorId} className="constructors-card">
+          <img src={constructor.url} alt=""/>
             <h3>{constructor.name}</h3>
             <h3>{constructor.nationality}</h3>
           </div>
