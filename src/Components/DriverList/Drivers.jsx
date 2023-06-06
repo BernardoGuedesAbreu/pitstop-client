@@ -17,7 +17,7 @@ function DriverList() {
       const data = response.data;
       console.log(data);
       console.log("there");
-      setDrivers(data.drivers[0].Drivers);
+      setDrivers(data.drivers);
     } catch (error) {
       console.error("Error fetching drivers:", error);
     }
@@ -26,7 +26,7 @@ function DriverList() {
   useEffect(() => {
     fetchDrivers();
   }, []);
-  
+
   const handleCreateDriver = async () => {
     try {
       const newDriverData = {
@@ -36,10 +36,10 @@ function DriverList() {
         dateOfBirth: new Date(),
         nationality: "USA",
       };
-  
+
       const storedToken = localStorage.getItem("authToken");
       const headers = { Authorization: `Bearer ${storedToken}` };
-  
+
       const response = await axios.post(`${api}/api/drivers`, newDriverData, {
         headers: headers,
       });
@@ -51,10 +51,16 @@ function DriverList() {
   };
 
   const handleDeleteDriver = async (driverId) => {
+    const storedToken = localStorage.getItem("authToken");
+    const headers = { Authorization: `Bearer ${storedToken}` };
     try {
-      await axios.delete(`${api}/api/drivers/${driverId}`);
-      const updatedDrivers = drivers.filter((driver) => driver.driverId !== driverId);
-      setDrivers(updatedDrivers);
+      await axios.delete(`${api}/api/drivers/${driverId}`, {
+        headers: headers,
+      });
+      const response = await axios.get(`${api}/api/drivers`);
+      const data = response.data;
+      console.log("updated drivers", data.drivers)
+      setDrivers(data.drivers);
     } catch (error) {
       console.error("Error deleting driver:", error);
     }
@@ -76,7 +82,7 @@ function DriverList() {
             <h4>{driver.nationality}</h4>
             <h4>{driver.dateOfBirth}</h4>
             {user && user.role === "admin" && (
-              <button onClick={() => handleDeleteDriver(driver.driverId)}>
+              <button onClick={() => handleDeleteDriver(driver._id)}>
                 Delete
               </button>
             )}

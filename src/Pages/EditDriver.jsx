@@ -4,7 +4,7 @@ import axios from "axios";
 const api = "http://localhost:5005";
 
 function NewDriver() {
-  // State variables to hold the form data
+
   const [driverId, setDriverId] = useState("");
   const [givenName, setGivenName] = useState("");
   const [familyName, setFamilyName] = useState("");
@@ -12,7 +12,7 @@ function NewDriver() {
   const [nationality, setNationality] = useState("");
   const [bio, setBio] = useState("");
 
-  // Function to handle form submission
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -32,20 +32,20 @@ function NewDriver() {
       );
 
       console.log("Driver updated:", response.data);
-      // Perform any necessary actions after the driver is updated
+     
     } catch (error) {
       console.error("Error updating driver:", error.response.data.message);
     }
   };
 
   useEffect(() => {
-    // Fetch the driver data for editing
+    
     const fetchDriver = async () => {
       try {
         const response = await axios.get(`${api}/api/drivers/${driverId}`);
         const driver = response.data;
 
-        // Set the form fields with the fetched driver data
+        
         setGivenName(driver.givenName);
         setFamilyName(driver.familyName);
         setDateOfBirth(driver.dateOfBirth);
@@ -56,7 +56,7 @@ function NewDriver() {
       }
     };
 
-    // Fetch the driver data when the component mounts
+    
     fetchDriver();
   }, [driverId]);
 

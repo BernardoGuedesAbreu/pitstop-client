@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 const api = "http://localhost:5005";
 
 function NewDriverPage() {
+  const navigate = useNavigate();
+  const { authenticateUser, user } = useContext(AuthContext);
   const [driverData, setDriverData] = useState({
     driverId: "",
     givenName: "",
@@ -24,10 +27,13 @@ function NewDriverPage() {
     event.preventDefault();
 
     try {
-      const response = await axios.post(`${api}/api/drivers`, driverData);
+      const storedToken = localStorage.getItem("authToken");
+      const response = await axios.post(`${api}/api/drivers`, driverData, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
       console.log("New driver created:", response.data.driver);
-      // Redirect to the driver list page after successful creation
-      window.location.href = "/drivers";
+
+      navigate("/drivers");
     } catch (error) {
       console.error("Error creating driver:", error);
     }

@@ -13,6 +13,7 @@ const Dashboard = () => {
   const [drivers, setDrivers] = useState([]);
 
   const handleDriverChange = (event) => {
+    console.log(`selected driver`, event.target.value)
     setSelectedDriver(event.target.value);
   };
 
@@ -22,7 +23,7 @@ const Dashboard = () => {
         const response = await axios.get(`${api}/api/drivers`);
         const { drivers } = response.data;
         console.log('Fetched drivers:', drivers);
-        setDrivers(drivers[0].Drivers);
+        setDrivers(drivers);
       } catch (error) {
         console.error('Error fetching drivers:', error);
       }
