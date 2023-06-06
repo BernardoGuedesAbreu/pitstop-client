@@ -5,6 +5,7 @@ import FastestLap from '../Components/Results/Fastestlap.jsx';
 import AverageQualify from '../Components/Results/AverageQualy';
 import AveragePosition from '../Components/Results/AveragePosition';
 import Standings from '../Components/Results/Standings';
+import '../dashboard.css';
 
 const api = 'http://localhost:5005';
 
@@ -33,21 +34,32 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <select value={selectedDriver} onChange={handleDriverChange}>
-        <option value="">Select a driver</option>
-        {drivers.map((driver) => (
-          <option key={driver.driverId} value={driver.driverId}>
-            {driver.givenName} {driver.familyName}
-          </option>
-        ))}
-      </select>
-      {selectedDriver && <DriverCard drivers={drivers} selectedDriver={selectedDriver} />}
-      {selectedDriver && <FastestLap selectedDriver={selectedDriver} />} 
-      {selectedDriver && <AverageQualify selectedDriver={selectedDriver} />}
-      {selectedDriver && <AveragePosition selectedDriver={selectedDriver} />}
-      {<Standings />}
+    <div className="dashboard">
+      <h1 className="dashboard-header">Dashboard</h1>
+      <h2 className="section-title">Standings</h2>
+      <div className="dashboard-section standings-section">
+        <Standings />
+      </div>
+
+      <div className="dashboard-section driver-selection-section">
+        <select className="driver-selection" value={selectedDriver} onChange={handleDriverChange}>
+          <option value="">Select a driver</option>
+          {drivers.map((driver) => (
+            <option key={driver.driverId} value={driver.driverId}>
+              {driver.givenName} {driver.familyName}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {selectedDriver && (
+        <div className="dashboard-section driver-info-section">
+          <DriverCard drivers={drivers} selectedDriver={selectedDriver} />
+          <FastestLap selectedDriver={selectedDriver} />
+          <AverageQualify selectedDriver={selectedDriver} />
+          <AveragePosition selectedDriver={selectedDriver} />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './driverCard.css'
 
 const DriverCard = ({ drivers, selectedDriver }) => {
   const selectedDriverInfo = drivers.find(
@@ -9,7 +10,7 @@ const DriverCard = ({ drivers, selectedDriver }) => {
     <div>
       <h2>Driver Card</h2>
       {selectedDriverInfo && (
-        <div>
+        <div className='driver-card'>
           <h3>Name: {selectedDriverInfo.givenName} {selectedDriverInfo.familyName}</h3>
           <h3>Nationality: {selectedDriverInfo.nationality}</h3>
           <img src={selectedDriverInfo.url}/>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './standings.css'
 
 const api = "http://localhost:5005";
 
@@ -51,7 +52,6 @@ function Standings() {
 
   return (
     <div>
-      <h2>Standings</h2>
       <table>
         <thead>
           <tr>
@@ -62,7 +62,7 @@ function Standings() {
         <tbody>
           {standings.map((driver) => (
             <tr key={driver.driverId}>
-              <td>{driver.driverId}</td>
+              <td className="td-driver">{driver.driverId}</td>
               <td>{driver.totalPoints}</td>
             </tr>
           ))}

@@ -68,7 +68,7 @@ function DriverList() {
 
   return (
     <div className="drivers-grid-container">
-      <h1>Driver List</h1>
+      <h1>Drivers</h1>
       {user && user.role === "admin" && (
         <button onClick={handleCreateDriver}>Create Driver</button>
       )}

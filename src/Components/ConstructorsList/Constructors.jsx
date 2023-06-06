@@ -26,7 +26,7 @@ function ConstructorsList() {
 
   return (
     <div className="constructors-grid-container">
-      <h1>Constructors List</h1>
+      <h1>Constructors</h1>
       <div className="constructors-grid">
         {constructors.map((constructor) => (
           <div key={constructor.constructorId} className="constructors-card">
