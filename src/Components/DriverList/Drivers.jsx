@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./drivers.css";
 import { AuthContext } from "../../context/auth.context";
+import { Link } from "react-router-dom";
 
 const api = "http://localhost:5005";
 
@@ -11,12 +12,9 @@ function DriverList() {
 
   async function fetchDrivers() {
     try {
-      console.log("here");
       const response = await axios.get(`${api}/api/drivers`);
-      console.log("kevin");
       const data = response.data;
       console.log(data);
-      console.log("there");
       setDrivers(data.drivers);
     } catch (error) {
       console.error("Error fetching drivers:", error);
@@ -27,29 +25,7 @@ function DriverList() {
     fetchDrivers();
   }, []);
 
-  const handleCreateDriver = async () => {
-    try {
-      const newDriverData = {
-        driverId: "12345",
-        givenName: "John",
-        familyName: "Doe",
-        dateOfBirth: new Date(),
-        nationality: "USA",
-      };
-
-      const storedToken = localStorage.getItem("authToken");
-      const headers = { Authorization: `Bearer ${storedToken}` };
-
-      const response = await axios.post(`${api}/api/drivers`, newDriverData, {
-        headers: headers,
-      });
-      const newDriver = response.data.driver;
-      setDrivers([...drivers, newDriver]);
-    } catch (error) {
-      console.error("Error creating driver:", error.response.data.message);
-    }
-  };
-
+  
   const handleDeleteDriver = async (driverId) => {
     const storedToken = localStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${storedToken}` };
@@ -69,9 +45,7 @@ function DriverList() {
   return (
     <div className="drivers-grid-container">
       <h1>Driver List</h1>
-      {user && user.role === "admin" && (
-        <button onClick={handleCreateDriver}>Create Driver</button>
-      )}
+     
       <div className="drivers-grid">
         {drivers.map((driver) => (
           <div key={driver.driverId} className="drivers-card">
@@ -82,15 +56,22 @@ function DriverList() {
             <h4>{driver.nationality}</h4>
             <h4>{driver.dateOfBirth}</h4>
             {user && user.role === "admin" && (
-              <button onClick={() => handleDeleteDriver(driver._id)}>
-                Delete
-              </button>
+              <div>
+                <button onClick={() => handleDeleteDriver(driver._id)}>
+                  Delete
+                </button>
+                <Link to={`/drivers/${driver._id}`}>Edit</Link>
+              </div>
             )}
           </div>
         ))}
       </div>
+      {user && user.role === "admin" && (
+        <Link to={"/new-driver"}>Create a driver</Link>
+      )}
     </div>
   );
 }
 
 export default DriverList;
+
