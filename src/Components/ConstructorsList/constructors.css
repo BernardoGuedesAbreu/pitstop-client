@@ -34,7 +34,7 @@ h1{
   }
 
   .constructors-card:hover{
-    color:rgb(89, 194, 212);
+    color:red;
     background-color: #171c2d;
     transform: scale(1.40);
   }

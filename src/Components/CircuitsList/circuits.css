@@ -11,6 +11,8 @@ h1{
     flex-direction: column;
     align-items: center;
     margin-left:5rem;
+    background-image: url("../../assets/f1_7.jpg1");
+    background-attachment: fixed;
   }
   
   .circuits-grid {
@@ -34,7 +36,7 @@ h1{
   }
 
   .circuits-card:hover {
-    color:rgb(89, 194, 212);
+    color:red;
     background-color: #171c2d;
     transform: scale(1.25);
   }

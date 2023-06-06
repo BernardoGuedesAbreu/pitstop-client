@@ -37,16 +37,7 @@ const Navbar = () => {
       to: '/circuits',
       section: 'circuits'
     },
-    {
-      display: 'Calendar',
-      to: '/calendar',
-      section: 'calendar'
-    },
-    {
-      display: 'About',
-      to: '/about',
-      section: 'about'
-    },
+    
   ];
 
   useEffect(() => {
