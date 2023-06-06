@@ -13,10 +13,14 @@ function AveragePosition({ selectedDriver }) {
     try {
       const response = await axios.get(`${api}/api/results`);
       const data = response.data;
-      const allResults = data.results.reduce(
-        (all, race) => all.concat(race.Races[0].Results),
+     
+
+      const allResults = data.results[0].Races.reduce(
+        (all, race) => all.concat(race.Results),
         []
       );
+
+      console.log(`results for average`, allResults);
       setRaces(data.results[0].Races);
       setResults(allResults);
     } catch (error) {
