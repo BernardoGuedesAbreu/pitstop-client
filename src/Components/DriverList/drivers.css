@@ -22,6 +22,7 @@ body{
     border-radius: 1rem;
     width: 16rem;
     padding-bottom: 1rem;
+    text-align: center;
   }
 
   .drivers-card > img {
@@ -31,7 +32,6 @@ body{
   }
 
   .drivers-card:hover{
-    color:red;
     background-color: #000000;
   }
 
@@ -71,7 +71,7 @@ body{
     padding:0.7rem;
     border-radius: 0.5rem;
     border: 1px solid black;
-    transition: 0.8 s;
+    transition: 0.8s;
   }
 
   .create-button:hover{
@@ -83,4 +83,5 @@ body{
   .driver-header{
     color:white;
     text-shadow: 4px 4px 4px rgba(255, 0, 0,0.5);
+    margin-top: 3%;
   }
