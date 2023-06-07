@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import DriverCard from '../components/DriverCard/DriverCard';
-import FastestLap from '../Components/Results/Fastestlap.jsx';
-import AverageQualify from '../Components/Results/AverageQualy';
-import AveragePosition from '../Components/Results/AveragePosition';
-import Standings from '../Components/Results/Standings';
-import '../dashboard.css';
-import PositionsGained from '../Components/Results/PositionsGained';
-import UnfinishedRaces from '../Components/Results/UnfinishedRaces';
-import PolePosition from '../Components/Results/PolePositions';
-import GridPosition from '../Components/Results/Qualy';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import DriverCard from "../Components/DriverCard/DriverCard";
+import FastestLap from "../Components/Results/Fastestlap.jsx";
+import AverageQualify from "../Components/Results/AverageQualy";
+import AveragePosition from "../Components/Results/AveragePosition";
+import Standings from "../Components/Results/Standings";
+import "../dashboard.css";
+import PositionsGained from "../Components/Results/PositionsGained";
+import UnfinishedRaces from "../Components/Results/UnfinishedRaces";
+import PolePosition from "../Components/Results/PolePositions";
+import GridPosition from "../Components/Results/Qualy";
 
-const api = 'http://localhost:5005';
+const api = "http://localhost:5005";
 
 const Dashboard = () => {
-  const [selectedDriver, setSelectedDriver] = useState('');
-  const [selectedRound, setSelectedRound] = useState('');
+  const [selectedDriver, setSelectedDriver] = useState("");
+  const [selectedRound, setSelectedRound] = useState("");
   const [drivers, setDrivers] = useState([]);
   const [rounds, setRounds] = useState([]);
 
@@ -32,11 +32,11 @@ const Dashboard = () => {
       try {
         const response = await axios.get(`${api}/api/drivers`);
         const { drivers } = response.data;
-        console.log(`drivers`, drivers)
-        
+        console.log(`drivers`, drivers);
+
         setDrivers(drivers);
       } catch (error) {
-        console.error('Error fetching drivers:', error);
+        console.error("Error fetching drivers:", error);
       }
     }
 
@@ -44,13 +44,13 @@ const Dashboard = () => {
       try {
         const response = await axios.get(`${api}/api/results`);
         const { Races } = response.data.results[0];
-        console.log(`form round`,Races)
+        console.log(`form round`, Races);
         const rounds = Races.map((race) => race.round);
-        console.log(`form rounds 2 `,rounds)
-        
+        console.log(`form rounds 2 `, rounds);
+
         setRounds(rounds);
       } catch (error) {
-        console.error('Error fetching rounds:', error);
+        console.error("Error fetching rounds:", error);
       }
     }
     fetchDrivers();
@@ -66,7 +66,11 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-section driver-selection-section scrollbar">
-        <select className="driver-selection" value={selectedDriver} onChange={handleDriverChange}>
+        <select
+          className="driver-selection"
+          value={selectedDriver}
+          onChange={handleDriverChange}
+        >
           <option value="">Select a driver</option>
           {drivers.map((driver) => (
             <option key={driver.driverId} value={driver.driverId}>
@@ -77,7 +81,11 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-section round-selection-section scrollbar">
-        <select className="round-selection" value={selectedRound} onChange={handleRoundChange}>
+        <select
+          className="round-selection"
+          value={selectedRound}
+          onChange={handleRoundChange}
+        >
           <option value="">Select a round</option>
           {rounds.map((round) => (
             <option key={round} value={round}>
@@ -86,18 +94,41 @@ const Dashboard = () => {
           ))}
         </select>
       </div>
-      <GridPosition selectedDriver={selectedDriver} selectedRound={selectedRound} />
-      <DriverCard className="driver-card" drivers={drivers} selectedDriver={selectedDriver}/>
+      <GridPosition
+        selectedDriver={selectedDriver}
+        selectedRound={selectedRound}
+      />
+      <DriverCard
+        className="driver-card"
+        drivers={drivers}
+        selectedDriver={selectedDriver}
+      />
       {selectedDriver && (
         <div className="dashboard-section driver-info-section">
-          <FastestLap selectedDriver={selectedDriver} selectedRound={selectedRound} />
-          <AverageQualify selectedDriver={selectedDriver} selectedRound={selectedRound} />
-          <AveragePosition selectedDriver={selectedDriver} selectedRound={selectedRound} />
-          <PositionsGained selectedDriver={selectedDriver} selectedRound={selectedRound} />
-          <UnfinishedRaces selectedDriver={selectedDriver} selectedRound={selectedRound} />
-          <PolePosition selectedDriver={selectedDriver} selectedRound={selectedRound} />
-
-
+          <FastestLap
+            selectedDriver={selectedDriver}
+            selectedRound={selectedRound}
+          />
+          <AverageQualify
+            selectedDriver={selectedDriver}
+            selectedRound={selectedRound}
+          />
+          <AveragePosition
+            selectedDriver={selectedDriver}
+            selectedRound={selectedRound}
+          />
+          <PositionsGained
+            selectedDriver={selectedDriver}
+            selectedRound={selectedRound}
+          />
+          <UnfinishedRaces
+            selectedDriver={selectedDriver}
+            selectedRound={selectedRound}
+          />
+          <PolePosition
+            selectedDriver={selectedDriver}
+            selectedRound={selectedRound}
+          />
         </div>
       )}
     </div>
@@ -105,7 +136,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-
-
