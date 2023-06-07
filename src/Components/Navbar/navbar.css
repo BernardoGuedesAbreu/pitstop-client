@@ -6,6 +6,8 @@
     width: 15rem;
     background-color: #171717;
     padding-top: 3rem;
+    text-align: center;
+    line-height: 3;
 }
 
 .sidebar__logo {

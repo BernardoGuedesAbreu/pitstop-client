@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-
+import '../dashboard.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const Login = () => {
 
 
   return (
-    <div>
+    <div className="auth">
       <h2>Login</h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleLoginSubmit}>
@@ -57,9 +57,9 @@ const Login = () => {
             onChange={handlePassword}
           />
         </div>
-        <button type="submit">Login</button>
+        <button className="auth-button" type="submit">Login</button>
         <p>Dont have an account yet?</p>
-          <Link to={'/signup'}>
+          <Link to={'/signup'} className="no-auth">
             Sign Up here
           </Link>
       </form>

@@ -39,11 +39,13 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h1 className="dashboard-title">Dashboard</h1>
+      <div className="first-section">
+      <div className="standings-display">
       <h2 className="section-title">Standings</h2>
       <div className="dashboard-section standings-section">
         <Standings />
       </div>
-
+      </div>
       <div className="dashboard-section driver-selection-section scrollbar">
         <select className="driver-selection" value={selectedDriver} onChange={handleDriverChange}>
           <option value="">Select a driver</option>
@@ -54,17 +56,24 @@ const Dashboard = () => {
           ))}
         </select>
       </div>
+      </div>
+      <div className="second-section">
         <DriverCard className="driver-card" drivers={drivers} selectedDriver={selectedDriver}/>
       {selectedDriver && (
-        <div className="dashboard-section driver-info-section">
+        <div className="dashboard-section driver-info-section1">
           <FastestLap selectedDriver={selectedDriver} />
           <AverageQualify selectedDriver={selectedDriver} />
           <AveragePosition selectedDriver={selectedDriver} />
+          </div>
+      )}
+      {selectedDriver && (
+        <div className="dashboard-section driver-info-section2">
           <PositionsGained selectedDriver={selectedDriver} />
           <UnfinishedRaces selectedDriver={selectedDriver} />
           <PolePosition selectedDriver={selectedDriver} />
         </div>
       )}
+      </div>
     </div>
   );
 };

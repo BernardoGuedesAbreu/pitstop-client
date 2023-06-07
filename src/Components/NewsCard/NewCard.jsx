@@ -11,7 +11,7 @@ const NewsCard = () => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        setArticles(data.articles.slice(0,14));
+        setArticles(data.articles.slice(0,20));
       } catch (error) {
         console.error('Error fetching articles:', error);
       }

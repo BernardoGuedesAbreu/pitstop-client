@@ -1,7 +1,8 @@
 .driver-card > img {
-    width: 20rem;
+    width: 19rem;
 }
 
 .driver-card {
-    line-height: 1;
+    line-height: 1.5;
+    width: 20rem;
 }

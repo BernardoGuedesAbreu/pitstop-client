@@ -32,7 +32,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="auth">
       <h2>Signup</h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleSignupSubmit}>
@@ -63,9 +63,9 @@ const Signup = () => {
             onChange={handlePassword}
           />
         </div>
-        <button type="submit">Sign up</button>
+        <button className="auth-button" type="submit">Sign up</button>
         <p>Already have an account?</p>
-        <Link to={"/login"}>Login here</Link>
+        <Link to={"/login"} className="no-auth">Login here</Link>
       </form>
     </div>
   );
