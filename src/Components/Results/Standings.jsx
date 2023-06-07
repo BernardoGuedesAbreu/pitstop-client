@@ -12,7 +12,7 @@ function Standings() {
       try {
         const response = await axios.get(`${api}/api/results`);
         const data = response.data;
-        console.log("data", data.results[0].Races);
+        
         const allResults = data.results[0].Races.reduce((all, race) => {
           const results = race.Results;
           return all.concat(results);
