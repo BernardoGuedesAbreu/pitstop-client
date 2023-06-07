@@ -14,9 +14,9 @@
   width: 15rem;
   padding: 10px;
   font-size: 16px;
-  background-color: rgb(31, 31, 31);
+  background-color: rgba(107, 107, 107, 0.7);
   padding: 1rem;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   color: white;
   border-radius: 0.5rem;
   display: flex;
@@ -30,9 +30,9 @@
 }
 
 .driver-info-section1 {
-  background-color: rgb(31, 31, 31);
+  background-color: rgba(107, 107, 107, 0.7);
   padding: 1rem;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   width: 20rem;
   line-height: 1;
   border-radius: 0.5rem;
@@ -44,9 +44,9 @@
 }
 
 .driver-info-section2 {
-  background-color: rgb(31, 31, 31);
+  background-color: rgba(107, 107, 107, 0.7);
   padding: 1rem;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   width: 20rem;
   line-height: 1;
   border-radius: 0.5rem;
@@ -54,16 +54,17 @@
   display: flex;
   justify-content: space-evenly ;
   flex-direction: column;
+  line-height: 1.5;
 }
 
 .standings-section {
-  height: 8.7rem;
+  height: 8.5rem;
   overflow-y: hidden;
   width: 30rem;
   transition: 1s;
-  background-color: rgb(31, 31, 31);
-  padding: 1rem;
-  border: 1px solid red;
+  background-color: rgba(107, 107, 107, 0.7);
+  padding: 0.5rem;
+  /*border: 1px solid red;*/
   border-radius: 0.5rem;
   display: flex;
 }
@@ -91,9 +92,9 @@
 }
 
 .driver-card {
-  background-color: rgb(31, 31, 31);
+  background-color: rgba(107, 107, 107, 0.7);
   padding: 1rem;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   border-radius: 0.5rem;
 }
 
@@ -101,7 +102,6 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background-color: #ff0000;
 }
 
 .second-section{
