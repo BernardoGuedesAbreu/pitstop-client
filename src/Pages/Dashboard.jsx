@@ -44,7 +44,7 @@ const Dashboard = () => {
         <Standings />
       </div>
 
-      <div className="dashboard-section driver-selection-section">
+      <div className="dashboard-section driver-selection-section scrollbar">
         <select className="driver-selection" value={selectedDriver} onChange={handleDriverChange}>
           <option value="">Select a driver</option>
           {drivers.map((driver) => (
