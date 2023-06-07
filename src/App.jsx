@@ -26,7 +26,7 @@ function App() {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/" element={<HomePage/>}/>
         <Route exact path="/new-driver" element={<NewDriverPage/>} />
-        <Route path="/drivers/:driverId" element={<EditDriverPage/>} />
+        <Route path="/drivers/edit/:driverId" element={<EditDriverPage/>} />
       </Routes>
     </div>
   );

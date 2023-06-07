@@ -66,7 +66,7 @@ function DriverList() {
                 <button className="delete-button" onClick={() => handleDeleteDriver(driver._id)}>
                   Delete
                 </button>
-                <Link to={`/drivers/${driver._id}`}><span className="edit-button">Edit</span></Link>
+                <Link to={`/drivers/edit/${driver._id}`}><span className="edit-button">Edit</span></Link>
               </div>
             )}
           </div>
