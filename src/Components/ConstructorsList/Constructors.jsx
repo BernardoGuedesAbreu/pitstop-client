@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import './constructors.css'
+import "./constructors.css";
 
 const api = "http://localhost:5005";
 function ConstructorsList() {
@@ -9,7 +9,9 @@ function ConstructorsList() {
   async function fetchConstructors() {
     try {
       console.log("here");
-      const response = await axios.get(`${api}/api/constructors`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/constructors`
+      );
       console.log("kevin");
       const data = response.data;
       console.log(data);
@@ -32,7 +34,7 @@ function ConstructorsList() {
           <div key={constructor.constructorId} className="constructors-card">
             <h2>{constructor.name}</h2>
             <h3>{constructor.nationality}</h3>
-            <img src={constructor.url} alt=""/>
+            <img src={constructor.url} alt="" />
           </div>
         ))}
       </div>

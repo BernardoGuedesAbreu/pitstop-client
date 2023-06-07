@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const api = "http://localhost:5005";
@@ -10,9 +10,11 @@ function GridPosition({ selectedDriver, selectedRound }) {
   useEffect(() => {
     async function fetchResults() {
       try {
-        const response = await axios.get(`${api}/api/results`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_MONGO_URL}/api/results`
+        );
         const data = response.data;
-        console.log(`data`, data)
+        console.log(`data`, data);
         const allResults = data.results[0].Races.reduce(
           (all, race) => all.concat(race),
           []
@@ -36,25 +38,17 @@ function GridPosition({ selectedDriver, selectedRound }) {
         result.race &&
         result.round === selectedRound
     );
- console.log(`filtered`, filteredResults)
-    
+    console.log(`filtered`, filteredResults);
 
-    const grid =
-      filteredResults.length > 0 ? filteredResults[0].grid : null;
-    
+    const grid = filteredResults.length > 0 ? filteredResults[0].grid : null;
+
     setGridPosition(grid);
   }, [results, selectedDriver, selectedRound]);
-
-  
 
   return (
     <div>
       <h2>Grid Position</h2>
-      {gridPosition !== null ? (
-        <p>{gridPosition}</p>
-      ) : (
-        <p>No data available</p>
-      )}
+      {gridPosition !== null ? <p>{gridPosition}</p> : <p>No data available</p>}
     </div>
   );
 }

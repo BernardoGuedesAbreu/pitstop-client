@@ -21,12 +21,15 @@ function EditDriverPage() {
     const fetchDriverData = async () => {
       try {
         const storedToken = localStorage.getItem("authToken");
-        const response = await axios.get(`${api}/api/drivers/${driverId}`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        });
-        console.log(`response`,response.data)
+        const response = await axios.get(
+          `${import.meta.env.VITE_MONGO_URL}/api/drivers/${driverId}`,
+          {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          }
+        );
+        console.log(`response`, response.data);
         const driver = response.data;
-        console.log(`driver data`, driver)
+        console.log(`driver data`, driver);
 
         setDriverData({
           driverId: driver.driverId,
@@ -56,7 +59,7 @@ function EditDriverPage() {
     try {
       const storedToken = localStorage.getItem("authToken");
       const response = await axios.put(
-        `${api}/api/drivers/${driverId}`,
+        `${import.meta.env.VITE_MONGO_URL}/api/drivers/${driverId}`,
         driverData,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
@@ -72,67 +75,67 @@ function EditDriverPage() {
 
   return (
     <div className="edit-driver-container">
-    <h1>Edit Driver</h1>
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="driverId">Driver ID:</label>
-        <input
-          type="text"
-          id="driverId"
-          name="driverId"
-          value={driverData.driverId}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="givenName">Given Name:</label>
-        <input
-          type="text"
-          id="givenName"
-          name="givenName"
-          value={driverData.givenName}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="familyName">Family Name:</label>
-        <input
-          type="text"
-          id="familyName"
-          name="familyName"
-          value={driverData.familyName}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="dateOfBirth">Date of Birth:</label>
-        <input
-          type="date"
-          id="dateOfBirth"
-          name="dateOfBirth"
-          value={driverData.dateOfBirth}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="nationality">Nationality:</label>
-        <input
-          type="text"
-          id="nationality"
-          name="nationality"
-          value={driverData.nationality}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
-      <button type="submit">Update Driver</button>
-    </form>
-  </div>
-);
+      <h1>Edit Driver</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="driverId">Driver ID:</label>
+          <input
+            type="text"
+            id="driverId"
+            name="driverId"
+            value={driverData.driverId}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="givenName">Given Name:</label>
+          <input
+            type="text"
+            id="givenName"
+            name="givenName"
+            value={driverData.givenName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="familyName">Family Name:</label>
+          <input
+            type="text"
+            id="familyName"
+            name="familyName"
+            value={driverData.familyName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="dateOfBirth">Date of Birth:</label>
+          <input
+            type="date"
+            id="dateOfBirth"
+            name="dateOfBirth"
+            value={driverData.dateOfBirth}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="nationality">Nationality:</label>
+          <input
+            type="text"
+            id="nationality"
+            name="nationality"
+            value={driverData.nationality}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <button type="submit">Update Driver</button>
+      </form>
+    </div>
+  );
 }
 
 export default EditDriverPage;

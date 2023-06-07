@@ -30,7 +30,9 @@ const Dashboard = () => {
   useEffect(() => {
     async function fetchDrivers() {
       try {
-        const response = await axios.get(`${api}/api/drivers`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_MONGO_URL}/api/drivers`
+        );
         const { drivers } = response.data;
         console.log(`drivers`, drivers);
 
@@ -42,7 +44,9 @@ const Dashboard = () => {
 
     async function fetchRounds() {
       try {
-        const response = await axios.get(`${api}/api/results`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_MONGO_URL}/api/results`
+        );
         const { Races } = response.data.results[0];
         console.log(`form round`, Races);
         const rounds = Races.map((race) => race.round);

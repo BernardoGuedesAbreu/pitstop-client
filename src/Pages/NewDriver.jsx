@@ -28,9 +28,13 @@ function NewDriverPage() {
 
     try {
       const storedToken = localStorage.getItem("authToken");
-      const response = await axios.post(`${api}/api/drivers`, driverData, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_MONGO_URL}/api/drivers`,
+        driverData,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
       console.log("New driver created:", response.data.driver);
 
       navigate("/drivers");

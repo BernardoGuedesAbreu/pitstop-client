@@ -10,9 +10,11 @@ function Standings() {
   useEffect(() => {
     async function fetchStandings() {
       try {
-        const response = await axios.get(`${api}/api/results`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_MONGO_URL}/api/results`
+        );
         const data = response.data;
-        
+
         const allResults = data.results[0].Races.reduce((all, race) => {
           const results = race.Results;
           return all.concat(results);
@@ -21,7 +23,8 @@ function Standings() {
         // Calculate total points for each driver
         const driverPoints = {};
         allResults.forEach((result) => {
-          const driverId = result.Driver.givenName + " " + result.Driver.familyName;
+          const driverId =
+            result.Driver.givenName + " " + result.Driver.familyName;
           const points = parseInt(result.points);
 
           if (driverPoints[driverId]) {

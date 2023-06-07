@@ -9,7 +9,9 @@ function PolePosition({ selectedDriver }) {
 
   async function fetchResults() {
     try {
-      const response = await axios.get(`${api}/api/results`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/results`
+      );
       const data = response.data;
       const allResults = data.results[0].Races.reduce(
         (all, race) => all.concat(race.Results),
