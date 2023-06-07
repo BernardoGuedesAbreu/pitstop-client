@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './standings.css'
+import "./standings.css";
 
 const api = "http://localhost:5005";
 
@@ -12,9 +12,8 @@ function Standings() {
       try {
         const response = await axios.get(`${api}/api/results`);
         const data = response.data;
-        console.log("data", data.results[0].Races)
+        console.log("data", data.results[0].Races);
         const allResults = data.results[0].Races.reduce((all, race) => {
-            
           const results = race.Results;
           return all.concat(results);
         }, []);
@@ -22,8 +21,7 @@ function Standings() {
         // Calculate total points for each driver
         const driverPoints = {};
         allResults.forEach((result) => {
-            
-          const driverId = result.Driver.driverId;
+          const driverId = result.Driver.givenName + " " + result.Driver.familyName;
           const points = parseInt(result.points);
 
           if (driverPoints[driverId]) {
@@ -64,7 +62,9 @@ function Standings() {
           {standings.map((driver) => (
             <tr key={driver.driverId}>
               <td className="td-driver">{driver.driverId}</td>
-              <td>..........................................................</td>
+              <td>
+                ..........................................................
+              </td>
               <td>{driver.totalPoints}</td>
             </tr>
           ))}
