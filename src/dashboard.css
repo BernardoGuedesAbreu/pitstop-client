@@ -9,6 +9,7 @@
   font-weight: bold;
   display: flex;
   margin-bottom: 0.5rem;
+  color:black;
 }
 
 .driver-selection {
@@ -21,13 +22,18 @@
   color: white;
   border-radius: 0.5rem;
   display: flex;
-  margin-left: 250%;
+  margin-left: 260%;
 }
 
 .first-section{
   display: flex;
   flex-direction: row;
   margin-left: 20%;
+}
+
+.standings-zone{
+  display: flex;
+  flex-direction: column;
 }
 
 .driver-info-section1 {

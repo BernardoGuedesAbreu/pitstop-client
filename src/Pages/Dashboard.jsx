@@ -48,13 +48,12 @@ const Dashboard = () => {
     <div className="dashboard">
       <h1 className="dashboard-title">Dashboard</h1>
       <div className="first-section">
-        <div className="standings-section">
+        <div className="standings-zone">
       <h2 className="section-title">Standings</h2>
       <div className="dashboard-section standings-section">
         <Standings />
-        </div>
       </div>
-
+      </div>
       <div className="dashboard-section driver-selection-section scrollbar">
         <select
           className="driver-selection"

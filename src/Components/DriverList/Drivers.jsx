@@ -84,11 +84,13 @@ function DriverList() {
           </div>
         ))}
       </div>
+      <div className="create-section">
       {user && user.role === "admin" && (
         <Link to={"/new-driver"}>
           <span className="create-button">Create a driver</span>
         </Link>
       )}
+      </div>
     </div>
   );
 }
