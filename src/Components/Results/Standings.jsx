@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./standings.css";
 
-const api = "http://localhost:5005";
+
 
 function Standings() {
   const [standings, setStandings] = useState([]);

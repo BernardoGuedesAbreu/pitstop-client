@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const api = "http://localhost:5005";
+
 
 function PolePosition({ selectedDriver }) {
   const [results, setResults] = useState([]);

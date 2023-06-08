@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const api = "http://localhost:5005";
+
 
 function FastestLap({ selectedDriver }) {
   const [races, setRaces] = useState([]);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const api = "http://localhost:5005";
+
 
 function GridPosition({ selectedDriver, selectedRound }) {
   const [results, setResults] = useState([]);
