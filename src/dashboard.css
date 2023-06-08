@@ -4,12 +4,40 @@
   color:black;
 }
 
+.pit-logo{
+  width:14rem;
+  height: 4rem;
+
+}
+
 .section-title {
   font-size: 24px;
   font-weight: bold;
   display: flex;
   margin-bottom: 0.5rem;
   color:black;
+}
+
+.logos-organizer{
+  display: flex;
+  flex-direction: column;
+  margin-left:7%;
+  margin-top: 2%;
+}
+
+.clock{
+  width:4rem;
+}
+
+.cup{
+  width:3rem;
+}
+
+.podium{
+  width: 5rem;
+}
+
+.icons-organizer{
 }
 
 .driver-selection {
@@ -130,9 +158,9 @@
 
 
 .standings-section {
-  height: 8.5rem;
+  height: 8rem;
   overflow-y: hidden;
-  width: 25rem;
+  width: 17rem;
   transition: 1s;
   background-color: rgba(107, 107, 107, 0.7);
   padding: 0.5rem;

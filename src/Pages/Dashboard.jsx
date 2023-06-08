@@ -51,6 +51,8 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="first-section">
+        <div className="organizer-select-dash">
+        <h1 className="dashboard-title">Dashboard</h1>
       <div className="dashboard-section driver-selection-section scrollbar">
           <select
             className="driver-selection"
@@ -65,13 +67,21 @@ const Dashboard = () => {
             ))}
           </select>
         </div>
+        </div>
         <div className="standings-zone">
           <h2 className="section-title">Standings</h2>
           <div className="dashboard-section standings-section">
             <Standings />
           </div>
         </div>
-        
+        <div className="logos-organizer">
+        <img src="https://cdn.discordapp.com/attachments/1095737455967207474/1116401875844092025/pitstop.png" className="pit-logo"/>
+        <div className="icons-organizer">
+              <img src="https://i.ibb.co/f2jVt9F/clock.png" className="clock"/>
+              <img src="https://i.ibb.co/MBCcVjz/cup.png" className="cup"/>
+              <img src="https://i.ibb.co/B3CgNyR/podium.png" className="podium"/>
+        </div>
+        </div>
       </div>
       <div className="second-section">
         <DriverCard className="driver-card" drivers={drivers} selectedDriver={selectedDriver} />
