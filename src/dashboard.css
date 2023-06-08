@@ -1,6 +1,7 @@
 .dashboard-title {
-  text-shadow: 4px 4px 4px rgba(255, 0, 0, 0.5);
+  text-shadow: 2px 2px 2px white;
   margin-top: 3%;
+  color:black;
 }
 
 .section-title {
