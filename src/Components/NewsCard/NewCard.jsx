@@ -20,7 +20,42 @@ const NewsCard = () => {
       clickUrl:
         "https://robbreport.com/motors/cars/delage-competing-2023-le-mans-lmp2-class-1234850452/",
     },
-    // Add more images with their respective paths and click URLs
+    {
+      id: 4,
+      imagePath: "https://i.ibb.co/jZ4NT3H/card4.png",
+      clickUrl:
+        "https://biztoc.com/x/eae07a64e7542543",
+    },
+    {
+      id: 5,
+      imagePath: "https://i.ibb.co/xFC552T/card5.png",
+      clickUrl:
+        "https://www.reddit.com/r/formula1/comments/141jtll/were_joining_the_reddit_blackout_from_june_12th/",
+    },
+    {
+      id: 6,
+      imagePath: "https://i.ibb.co/mhGjwjp/card6.png",
+      clickUrl:
+        "https://www.cryptopolitan.com/red-bull-partners-with-sui-network-formula1/",
+    },
+    {
+      id: 7,
+      imagePath: "https://i.ibb.co/0m82DSh/card7.png",
+      clickUrl:
+        "https://biztoc.com/x/92d7a2c6fb0fc4f3",
+    },
+    {
+      id: 8,
+      imagePath: "https://i.ibb.co/tzJnwQ8/card9.png",
+      clickUrl:
+        "https://www.streetopia.me/m/news/6116769d45e23b779371baae/jay-z-now-as-a-partner-of-fanatics",
+    },
+    {
+      id: 9,
+      imagePath: "https://i.ibb.co/KxJj3nK/card8.png",
+      clickUrl:
+        "https://biztoc.com/x/6904e817cef1d719",
+    },
   ];
 
   const handleClick = (url) => {
@@ -28,15 +63,19 @@ const NewsCard = () => {
   };
 
   return (
-    <div className="image-grid">
+    <div className="grid-container">
+    <div className="card">
       {images.map((image) => (
+        
         <img
           key={image.id}
           src={image.imagePath}
           alt={`Image ${image.id}`}
           onClick={() => handleClick(image.clickUrl)}
         />
+    
       ))}
+      </div>
     </div>
   );
 };
