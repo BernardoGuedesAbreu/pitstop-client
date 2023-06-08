@@ -5,3 +5,19 @@ tr {
 .td-driver {
     margin-right: 60px;
 }
+
+.green{
+    background-color:green;
+    color:white;
+    padding-left:2%;
+    padding-right: 2%;
+    border-radius: 25%;
+}
+
+.red{
+    background-color:red;
+    color:white;
+    padding-left:2%;
+    padding-right: 2%;
+    border-radius: 25%;
+}

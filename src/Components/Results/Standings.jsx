@@ -66,7 +66,7 @@ function Standings() {
             <tr key={driver.driverId}>
               <td className="td-driver">{driver.driverId}</td>
               <td>
-                ..........................................................
+                ..........................................
               </td>
               <td>{driver.totalPoints}</td>
             </tr>

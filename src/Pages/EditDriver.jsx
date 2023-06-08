@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-
+import '../dashboard.css';
 
 
 function EditDriverPage() {
@@ -75,9 +75,10 @@ function EditDriverPage() {
 
   return (
     <div className="edit-driver-container">
-      <h1>Edit Driver</h1>
+      <h1 className="edit-header">Edit Driver</h1>
+      <div className="edit-form">
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div>
           <label htmlFor="driverId">Driver ID:</label>
           <input
             type="text"
@@ -88,7 +89,7 @@ function EditDriverPage() {
             required
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="givenName">Given Name:</label>
           <input
             type="text"
@@ -99,7 +100,7 @@ function EditDriverPage() {
             required
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="familyName">Family Name:</label>
           <input
             type="text"
@@ -110,7 +111,7 @@ function EditDriverPage() {
             required
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="dateOfBirth">Date of Birth:</label>
           <input
             type="date"
@@ -121,7 +122,7 @@ function EditDriverPage() {
             required
           />
         </div>
-        <div className="form-group">
+        <div>
           <label htmlFor="nationality">Nationality:</label>
           <input
             type="text"
@@ -132,8 +133,9 @@ function EditDriverPage() {
             required
           />
         </div>
-        <button type="submit">Update Driver</button>
+        <button type="submit" className="edit-driver">Update Driver</button>
       </form>
+      </div>
     </div>
   );
 }

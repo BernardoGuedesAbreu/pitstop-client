@@ -13,72 +13,149 @@
 }
 
 .driver-selection {
-  width: 15rem;
+  width: 22rem;
   padding: 10px;
   font-size: 16px;
   background-color: rgba(107, 107, 107, 0.7);
   padding: 1rem;
-  /*border: 1px solid red;*/
+  border: 1px solid red;
   color: white;
   border-radius: 0.5rem;
   display: flex;
-  margin-left: 260%;
+  margin-top: 20%;
 }
 
 .first-section{
   display: flex;
   flex-direction: row;
-  margin-left: 20%;
+  margin-left: 15%;
+  margin-top: 1%;
 }
 
 .standings-zone{
   display: flex;
   flex-direction: column;
+  margin-left: 5%;
 }
 
-.driver-info-section1 {
+.driver-info-fastest-lap {
   background-color: rgba(107, 107, 107, 0.7);
-  padding: 1rem;
-  /*border: 1px solid red;*/
-  width: 20rem;
+  padding: 0.5rem;
+  border: 1px solid red;
+  width: 18rem;
   line-height: 1;
   border-radius: 0.5rem;
-  margin-left: 10%;
+  margin-left: 50%;
+  display: flex;
+  justify-content: space-evenly ;
+  flex-direction: column;
+  line-height: 1.5;
+  margin-top: 10%;
+}
+
+.driver-pole-position {
+  background-color: rgba(107, 107, 107, 0.7);
+  padding: 0.5rem;
+  border: 1px solid red;
+  width: 18rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  margin-left: 50%;
+  display: flex;
+  justify-content: space-evenly ;
+  flex-direction: column;
+  line-height: 1.5;
+  margin-top: 9%;
+}
+
+.driver-unfinished-races {
+  background-color: rgba(107, 107, 107, 0.7);
+  padding: 0.5rem;
+  border: 1px solid red;
+  width: 18rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  margin-left: 50%;
+  display: flex;
+  justify-content: space-evenly ;
+  flex-direction: column;
+  line-height: 1.5;
+  margin-top: 10%;
+}
+
+.driver-info-average-qualify {
+  background-color: rgba(107, 107, 107, 0.7);
+  padding: 0.5rem;
+  border: 1px solid red;
+  width: 17rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  margin-left: 28%;
+  display: flex;
+  justify-content: space-evenly ;
+  flex-direction: column;
+  line-height: 1.5;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
+.driver-info-average-position {
+  background-color: rgba(107, 107, 107, 0.7);
+  padding: 0.5rem;
+  border: 1px solid red;
+  width: 17rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  margin-left: 28%;
+  display: flex;
+  justify-content: space-evenly ;
+  flex-direction: column;
+  line-height: 1.5;
+  margin-bottom:10%;
+}
+
+.driver-positions-gained {
+  background-color: rgba(107, 107, 107, 0.7);
+  padding: 0.5rem;
+  border: 1px solid red;
+  width: 17rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  margin-left: 28%;
   display: flex;
   justify-content: space-evenly ;
   flex-direction: column;
   line-height: 1.5;
 }
 
-.driver-info-section2 {
-  background-color: rgba(107, 107, 107, 0.7);
-  padding: 1rem;
-  /*border: 1px solid red;*/
-  width: 20rem;
-  line-height: 1;
-  border-radius: 0.5rem;
-  margin-left: 10%;
-  display: flex;
-  justify-content: space-evenly ;
-  flex-direction: column;
-  line-height: 1.5;
-}
 
 .standings-section {
   height: 8.5rem;
   overflow-y: hidden;
-  width: 30rem;
+  width: 25rem;
   transition: 1s;
   background-color: rgba(107, 107, 107, 0.7);
   padding: 0.5rem;
-  /*border: 1px solid red;*/
+  border: 1px solid red;
   border-radius: 0.5rem;
   display: flex;
+  font-size:1rem
 }
 
 .standings-section:hover {
   overflow-y: scroll;
 }
+
+.average-qual-pos{
+  display: flex;
+  flex-direction: column;
+}
+
+.fastestlap-dnf-pole{
+  display: flex;
+  flex-direction: column;
+}
+
 
 ::-webkit-scrollbar {
   width: 0.8rem;
@@ -101,7 +178,7 @@
 .driver-card {
   background-color: rgba(107, 107, 107, 0.7);
   padding: 1rem;
-  /*border: 1px solid red;*/
+  border: 1px solid red;
   border-radius: 0.5rem;
 }
 
@@ -114,8 +191,7 @@
 .second-section{
   display: flex;
   flex-direction: row;
-  margin-top: 3.5%;
-  margin-left: 20%;
+  margin-left: 15%;
 }
 
 .auth{
@@ -156,4 +232,41 @@
 
 .no-auth:hover{
   color:rgb(103, 0, 0);
+}
+
+.edit-header{
+  color:black;
+  text-shadow: 2px 2px 2px rgb(255, 255, 255);
+  margin-top: 3%;
+}
+
+.edit-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid red;
+  padding: 1%;
+  border-radius: 1rem;
+  width: 20rem;
+  margin-left: 45%;
+  color:black;
+  margin-top:10%;
+}
+
+.edit-driver{
+  background-color: red;
+  color:white;
+  padding:0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  transition: 0.8s;
+  margin-top:5%;
+}
+
+.edit-driver:hover{
+  background-color: black;
+  color:red;
+  border-color: white;
 }

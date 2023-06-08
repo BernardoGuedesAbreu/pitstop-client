@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./standings.css";
 
 
 
@@ -49,15 +50,24 @@ function PositionsGained({ selectedDriver }) {
 
     setTotalPositionsGained(totalPositionsGained);
     setAveragePositionsGained(
-      totalPositionsGained / filteredResults.length || 0
+      (totalPositionsGained / filteredResults.length || 0).toFixed(3)
     );
   }, [results, selectedDriver]);
+
+  const getColorClass = () => {
+    if (averagePositionsGained > 0) {
+      return "green";
+    } else if (averagePositionsGained < 0) {
+      return "red";
+    }
+    return "";
+  };
 
   return (
     <div>
       <h2>Positions Gained</h2>
       <p>Total Positions Gained: {totalPositionsGained}</p>
-      <p>Average Positions Gained: {averagePositionsGained}</p>
+      <p>Average Positions Gained: <span className={getColorClass()}>{averagePositionsGained}</span></p>
     </div>
   );
 }

@@ -50,7 +50,7 @@ function UnfinishedRaceCount({ selectedDriver }) {
 
   return (
     <div>
-      <h2>Number of unfinished Races (DNF) </h2>
+      <h2>Number of DNF </h2>
       <p>{unfinishedRaceCount}</p>
     </div>
   );
