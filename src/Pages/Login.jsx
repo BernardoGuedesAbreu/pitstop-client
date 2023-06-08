@@ -22,7 +22,7 @@ const Login = () => {
       password,
     };
     axios
-      .post(`http://localhost:5005/api/login`, body)
+      .post(`${import.meta.env.VITE_MONGO_URL}/api/login`, body)
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();

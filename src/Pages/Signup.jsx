@@ -22,7 +22,7 @@ const Signup = () => {
       password,
     };
     axios
-      .post(`http://localhost:5005/api/signup`, body)
+      .post(`${import.meta.env.VITE_MONGO_URL}/api/signup`, body)
       .then(() => {
         navigate("/login");
       })

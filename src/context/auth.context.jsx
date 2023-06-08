@@ -20,7 +20,7 @@ function AuthProviderWrapper(props) {
       const storedToken = localStorage.getItem("authToken");
 
       if (storedToken) {
-        const response = await axios.get(`http://localhost:5005/api/verify`, {
+        const response = await axios.get(`${import.meta.env.VITE_MONGO_URL}/api/verify`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         });
         //The next part happens if the login was succesfful
