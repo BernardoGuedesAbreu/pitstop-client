@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import './circuits.css'
+import "./circuits.css";
 
 const api = "http://localhost:5005";
 function CircuitsList() {
@@ -9,7 +9,9 @@ function CircuitsList() {
   async function fetchCircuits() {
     try {
       console.log("here");
-      const response = await axios.get(`${api}/api/circuits`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/circuits`
+      );
       console.log("kevin");
       const data = response.data;
       console.log(data);
@@ -30,10 +32,11 @@ function CircuitsList() {
       <div className="circuits-grid">
         {circuits.map((circuits) => (
           <div key={circuits.circuitsId} className="circuits-card">
-            <img src={circuits.url}/>
+            <img src={circuits.url} />
             <h3>{circuits.circuitName}</h3>
-            <h4>{circuits.Location.country}, {circuits.Location.locality}</h4>
-            
+            <h4>
+              {circuits.Location.country}, {circuits.Location.locality}
+            </h4>
           </div>
         ))}
       </div>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const api = "http://localhost:5005";
+
 
 function FastestLap({ selectedDriver }) {
   const [races, setRaces] = useState([]);
@@ -12,7 +12,9 @@ function FastestLap({ selectedDriver }) {
 
   async function fetchResults() {
     try {
-      const response = await axios.get(`${api}/api/results`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/results`
+      );
       const data = response.data;
       const allResults = data.results.reduce(
         (all, race) => all.concat(race.Races[0].Results),
@@ -47,7 +49,9 @@ function FastestLap({ selectedDriver }) {
 
         const lapTimeInSeconds = minutes * 60 + seconds;
         totalFastestLapTime += lapTimeInSeconds;
-        totalFastestLapSpeed += parseFloat(result.FastestLap.AverageSpeed.speed);
+        totalFastestLapSpeed += parseFloat(
+          result.FastestLap.AverageSpeed.speed
+        );
         count++;
       }
     });
@@ -64,10 +68,14 @@ function FastestLap({ selectedDriver }) {
       <h2>Fastest Lap</h2>
       <div>
         {averageFastestLapTime !== null && (
-          <p>Average Fastest Lap Time: {averageFastestLapTime.toFixed(3)} seconds</p>
+          <p>
+            Average Fastest Lap Time: {averageFastestLapTime.toFixed(3)} seconds
+          </p>
         )}
         {averageFastestLapSpeed !== null && (
-          <p>Average Fastest Lap Speed: {averageFastestLapSpeed.toFixed(3)} km/h</p>
+          <p>
+            Average Fastest Lap Speed: {averageFastestLapSpeed.toFixed(3)} km/h
+          </p>
         )}
       </div>
     </div>

@@ -12,7 +12,9 @@ function DriverList() {
 
   async function fetchDrivers() {
     try {
-      const response = await axios.get(`${api}/api/drivers`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/drivers`
+      );
       const data = response.data;
       console.log(data);
       setDrivers(data.drivers);
@@ -32,17 +34,22 @@ function DriverList() {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-  
+
   const handleDeleteDriver = async (driverId) => {
     const storedToken = localStorage.getItem("authToken");
     const headers = { Authorization: `Bearer ${storedToken}` };
     try {
-      await axios.delete(`${api}/api/drivers/${driverId}`, {
-        headers: headers,
-      });
-      const response = await axios.get(`${api}/api/drivers`);
+      await axios.delete(
+        `${import.meta.env.VITE_MONGO_URL}/api/drivers/${driverId}`,
+        {
+          headers: headers,
+        }
+      );
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/drivers`
+      );
       const data = response.data;
-      console.log("updated drivers", data.drivers)
+      console.log("updated drivers", data.drivers);
       setDrivers(data.drivers);
     } catch (error) {
       console.error("Error deleting driver:", error);
@@ -63,21 +70,27 @@ function DriverList() {
             <h4>{formatDateOfBirth(driver.dateOfBirth)}</h4>
             {user && user.role === "admin" && (
               <div>
-                <button className="delete-button" onClick={() => handleDeleteDriver(driver._id)}>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeleteDriver(driver._id)}
+                >
                   Delete
                 </button>
-                <Link to={`/drivers/edit/${driver._id}`}><span className="edit-button">Edit</span></Link>
+                <Link to={`/drivers/edit/${driver._id}`}>
+                  <span className="edit-button">Edit</span>
+                </Link>
               </div>
             )}
           </div>
         ))}
       </div>
       {user && user.role === "admin" && (
-        <Link to={"/new-driver"}><span className="create-button">Create a driver</span></Link>
+        <Link to={"/new-driver"}>
+          <span className="create-button">Create a driver</span>
+        </Link>
       )}
     </div>
   );
 }
 
 export default DriverList;
-

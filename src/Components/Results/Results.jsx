@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const api = "http://localhost:5005";
+
 
 function Results() {
   const [races, setRaces] = useState([]);
@@ -9,7 +9,9 @@ function Results() {
 
   async function fetchResults() {
     try {
-      const response = await axios.get(`${api}/api/results`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_MONGO_URL}/api/results`
+      );
       const data = response.data;
       const allResults = data.results.reduce(
         (all, race) => all.concat(race.Races[0].Results),
@@ -40,16 +42,21 @@ function Results() {
                 {race.Results.map((result) => (
                   <li key={result.number}>
                     <div>
-                      <h3>{result.Driver.givenName} {result.Driver.familyName}</h3>
+                      <h3>
+                        {result.Driver.givenName} {result.Driver.familyName}
+                      </h3>
                       <p>Position: {result.position}</p>
                       <p>Points: {result.points}</p>
                       <p>Constructor: {result.Constructor.name}</p>
                       <p>Grid: {result.grid}</p>
-                     
+
                       {result.FastestLap && (
                         <div>
                           <p>Fastest Lap Time: {result.FastestLap.Time.time}</p>
-                          <p>Fastest Lap Average Speed: {result.FastestLap.AverageSpeed.speed}</p>
+                          <p>
+                            Fastest Lap Average Speed:{" "}
+                            {result.FastestLap.AverageSpeed.speed}
+                          </p>
                         </div>
                       )}
                     </div>
