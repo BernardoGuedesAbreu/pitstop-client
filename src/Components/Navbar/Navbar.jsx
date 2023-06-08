@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './navbar.css';
 import { AuthContext } from "../../context/auth.context";
-import logoF1 from "../../assets/logo-f1.png"
 
 const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -97,9 +96,7 @@ const Navbar = () => {
           </>
         )}
       </div>
-      <div>
-      <img src={logoF1} alt="image not loaded"/>
-      </div>
+      <img src="https://cdn.discordapp.com/attachments/1095737455967207474/1116313105945858048/logo-f1.png" alt="image not loaded" className="nav-f1-logo"/>
     </div>
   );
 };
