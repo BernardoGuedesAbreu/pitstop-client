@@ -47,9 +47,12 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h1 className="dashboard-title">Dashboard</h1>
+      <div className="first-section">
+        <div className="standings-section">
       <h2 className="section-title">Standings</h2>
       <div className="dashboard-section standings-section">
         <Standings />
+        </div>
       </div>
 
       <div className="dashboard-section driver-selection-section scrollbar">
@@ -66,44 +69,24 @@ const Dashboard = () => {
           ))}
         </select>
       </div>
-
-    
-    
-    
-    
-      <DriverCard
-        className="driver-card"
-        drivers={drivers}
-        selectedDriver={selectedDriver}
-      />
+      </div>
+      <div className="second-section">
+      <DriverCard className="driver-card" drivers={drivers} selectedDriver={selectedDriver}/>
       {selectedDriver && (
-        <div className="dashboard-section driver-info-section">
-          <FastestLap
-            selectedDriver={selectedDriver}
-            
-          />
-          <AverageQualify
-            selectedDriver={selectedDriver}
-            
-          />
-          <AveragePosition
-            selectedDriver={selectedDriver}
-            
-          />
-          <PositionsGained
-            selectedDriver={selectedDriver}
-            
-          />
-          <UnfinishedRaces
-            selectedDriver={selectedDriver}
-           
-          />
-          <PolePosition
-            selectedDriver={selectedDriver}
-            
-          />
+        <div className="dashboard-section driver-info-section1">
+          <FastestLap selectedDriver={selectedDriver}/>
+          <AverageQualify selectedDriver={selectedDriver}/>
+          <AveragePosition selectedDriver={selectedDriver}/>
         </div>
       )}
+        {selectedDriver && (
+        <div className="dashboard-section driver-info-section2">
+          <PositionsGained selectedDriver={selectedDriver}/>
+          <UnfinishedRaces selectedDriver={selectedDriver}/>
+          <PolePosition selectedDriver={selectedDriver}/>
+        </div>
+      )}
+      </div>
     </div>
   );
 };
