@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const api = "http://localhost:5005";
+
 
 function EditDriverPage() {
   const navigate = useNavigate();

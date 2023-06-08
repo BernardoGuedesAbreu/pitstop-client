@@ -22,7 +22,7 @@ const Login = () => {
       password,
     };
     axios
-      .post(`http://localhost:5005/api/login`, body)
+      .post(`https://friendly-otter-eed6d1.netlify.app/api/login`, body)
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();

@@ -22,7 +22,7 @@ const Signup = () => {
       password,
     };
     axios
-      .post(`http://localhost:5005/api/signup`, body)
+      .post(`https://friendly-otter-eed6d1.netlify.app/api/signup`, body)
       .then(() => {
         navigate("/login");
       })
