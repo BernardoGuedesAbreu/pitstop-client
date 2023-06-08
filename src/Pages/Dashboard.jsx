@@ -31,9 +31,13 @@ const Dashboard = () => {
           `${import.meta.env.VITE_MONGO_URL}/api/drivers`
         );
         const { drivers } = response.data;
+        
         console.log(`drivers`, drivers);
 
         setDrivers(drivers);
+        if (drivers.length > 0) {
+          setSelectedDriver(drivers[0].driverId);
+        }
       } catch (error) {
         console.error("Error fetching drivers:", error);
       }
