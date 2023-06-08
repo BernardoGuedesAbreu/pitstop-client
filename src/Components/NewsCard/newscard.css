@@ -29,8 +29,8 @@
 }
 
 .card:hover {
-  color: rgb(89, 194, 212);
-  background-color: #171c2d;
+  color: rgb(196, 196, 196);
+  background-color: #000000;
 }
 
 :root {

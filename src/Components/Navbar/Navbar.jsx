@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './navbar.css';
 import { AuthContext } from "../../context/auth.context";
+import logoF1 from "../../assets/logo-f1.png"
 
 const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -95,6 +96,9 @@ const Navbar = () => {
             </NavLink>
           </>
         )}
+      </div>
+      <div>
+      <img src={logoF1} alt="image not loaded"/>
       </div>
     </div>
   );
