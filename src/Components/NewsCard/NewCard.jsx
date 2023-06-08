@@ -1,37 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import './newscard.css';
+import { useState, useEffect } from "react";
+import "./newscard.css";
 
 const NewsCard = () => {
-  const [articles, setArticles] = useState([]);
+  const images = [
+    {
+      id: 1,
+      imagePath: "https://i.ibb.co/6tTkxQ9/card1.png",
+      clickUrl: "https://biztoc.com/x/d7ce1df5f927d43f",
+    },
+    {
+      id: 2,
+      imagePath: "https://i.ibb.co/xD5qf1n/card2.png",
+      clickUrl:
+        "https://www.digitaltrends.com/movies/watch-f1-live-stream-online/",
+    },
+    {
+      id: 3,
+      imagePath: "https://i.ibb.co/gRK519j/card3.png",
+      clickUrl:
+        "https://robbreport.com/motors/cars/delage-competing-2023-le-mans-lmp2-class-1234850452/",
+    },
+    // Add more images with their respective paths and click URLs
+  ];
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const API_URL = `https://newsapi.org/v2/everything?q=formula1&language=en&sortBy=publishedAt&apiKey=61b2b0a5681649e7a91e8dbdd8b4979e`;
-      
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        setArticles(data.articles.slice(0,20));
-      } catch (error) {
-        console.error('Error fetching articles:', error);
-      }
-    };
-
-    fetchArticles();
-  }, []);
+  const handleClick = (url) => {
+    window.open(url, "_blank");
+  };
 
   return (
-    <div className="grid-container">
-      <div className="grid">
-        {articles.map((article, index) => (
-          <a key={index} className="card" href={article.url} target="_blank">
-            <img src={article.urlToImage} alt={article.title}/>
-            <h3>{article.source.name}</h3>
-            <h4>{article.title}</h4>
-            <p>{article.description}</p>
-          </a>
-        ))}
-      </div>
+    <div className="image-grid">
+      {images.map((image) => (
+        <img
+          key={image.id}
+          src={image.imagePath}
+          alt={`Image ${image.id}`}
+          onClick={() => handleClick(image.clickUrl)}
+        />
+      ))}
     </div>
   );
 };
