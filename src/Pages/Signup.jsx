@@ -22,7 +22,7 @@ const Signup = () => {
       password,
     };
     axios
-      .post(`https://friendly-otter-eed6d1.netlify.app/api/signup`, body)
+      .post(`${import.meta.env.VITE_MONGO_URL}/api/signup`, body)
       .then(() => {
         navigate("/login");
       })
