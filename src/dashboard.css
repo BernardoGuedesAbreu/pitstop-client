@@ -41,7 +41,7 @@
 }
 
 .driver-selection {
-  width: 22rem;
+  width: 21rem;
   padding: 10px;
   font-size: 16px;
   background-color: rgba(107, 107, 107, 0.7);
@@ -51,6 +51,7 @@
   border-radius: 0.5rem;
   display: flex;
   margin-top: 20%;
+  margin-bottom: 1%;
 }
 
 .first-section{

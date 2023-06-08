@@ -56,7 +56,9 @@ const Navbar = () => {
 
   return (
     <div className="sidebar">
-      <div className="sidebar__logo">PitStop</div>
+      <div className="sidebar__logo">
+      <img src="https://cdn.discordapp.com/attachments/1095737455967207474/1116401875844092025/pitstop.png" className='nav-logo'/>
+      </div>
       <div ref={sidebarRef} className="sidebar__menu">
         <div
           ref={indicatorRef}

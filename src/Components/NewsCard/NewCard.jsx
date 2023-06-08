@@ -46,12 +46,6 @@ const NewsCard = () => {
     },
     {
       id: 8,
-      imagePath: "https://i.ibb.co/tzJnwQ8/card9.png",
-      clickUrl:
-        "https://www.streetopia.me/m/news/6116769d45e23b779371baae/jay-z-now-as-a-partner-of-fanatics",
-    },
-    {
-      id: 9,
       imagePath: "https://i.ibb.co/KxJj3nK/card8.png",
       clickUrl:
         "https://biztoc.com/x/6904e817cef1d719",
@@ -64,7 +58,7 @@ const NewsCard = () => {
 
   return (
     <div className="grid-container">
-    <div className="card">
+    <div>
       {images.map((image) => (
         
         <img
@@ -72,6 +66,7 @@ const NewsCard = () => {
           src={image.imagePath}
           alt={`Image ${image.id}`}
           onClick={() => handleClick(image.clickUrl)}
+          className="news-card"
         />
     
       ))}
