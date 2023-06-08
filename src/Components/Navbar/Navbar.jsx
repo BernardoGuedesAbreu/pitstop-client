@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './navbar.css';
 import { AuthContext } from "../../context/auth.context";
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
